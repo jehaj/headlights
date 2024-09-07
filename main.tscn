@@ -1,59 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://6tkwg0tjicre"]
-[gd_scene load_steps=8 format=3 uid="uid://6tkwg0tjicre"]
+[gd_scene load_steps=8 format=3 uid="uid://v2pbpcu7x6yb"]
 
-[ext_resource type="Texture2D" uid="uid://wmsnp1uipkhi" path="res://assets/car1.png" id="1_1gbon"]
-[ext_resource type="Texture2D" uid="uid://bt7710qd3am1b" path="res://assets/vindue.png" id="1_8lkus"]
-[ext_resource type="Shader" path="res://assets/greyscale.gdshader" id="1_686tt"]
-[ext_resource type="Texture2D" uid="uid://70wkijwc6u6h" path="res://assets/car2.png" id="2_akfpp"]
-[ext_resource type="Script" path="res://sprite_2d.gd" id="2_b2eod"]
-[ext_resource type="Texture2D" uid="uid://big2a37lb86j1" path="res://assets/car3.png" id="3_2a25d"]
-[ext_resource type="Texture2D" uid="uid://b2jjdpc5kt2nd" path="res://assets/car4.png" id="4_tu8c8"]
+[ext_resource type="Shader" path="res://assets/greyscale.gdshader" id="1_hado2"]
+[ext_resource type="Texture2D" uid="uid://c4vq7pe2jb151" path="res://assets/aros.jpg" id="2_nc10b"]
+[ext_resource type="Script" path="res://aros.gd" id="3_wx44i"]
+[ext_resource type="Texture2D" uid="uid://bt7710qd3am1b" path="res://assets/vindue.png" id="4_ciyw0"]
+[ext_resource type="Script" path="res://sprite_2d.gd" id="5_jbbw1"]
+[ext_resource type="Texture2D" uid="uid://cwvmkrbcf7m7a" path="res://assets/car_window_4x_transparent.png" id="6_hfvxb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fvk15"]
-shader = ExtResource("1_686tt")
+shader = ExtResource("1_hado2")
 
 [node name="root" type="Node2D"]
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(811, 231)
-rotation = 3.14159
-scale = Vector2(568.397, -274.262)
-texture = SubResource("CurveXYZTexture_i7la8")
+[node name="Aros" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fvk15")
+position = Vector2(524, 413)
+scale = Vector2(1.28125, 1.37326)
+texture = ExtResource("2_nc10b")
+script = ExtResource("3_wx44i")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(69.0001, 502)
 scale = Vector2(10, 10)
-texture = ExtResource("1_8lkus")
-script = ExtResource("2_b2eod")
+texture = ExtResource("4_ciyw0")
+script = ExtResource("5_jbbw1")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(811, 231)
-rotation = 3.14159
-scale = Vector2(568.397, -274.262)
-texture = SubResource("CurveXYZTexture_i7la8")
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(69.0001, 502)
-scale = Vector2(10, 10)
-texture = ExtResource("1_8lkus")
-script = ExtResource("2_b2eod")
-
-[node name="CarSides" type="Node2D" parent="."]
+[node name="CarWindow" type="Sprite2D" parent="."]
+modulate = Color(0.647022, 0.996162, 0, 1)
 position = Vector2(580, 302)
 scale = Vector2(0.525, 0.525)
-
-[node name="Car1" type="Sprite2D" parent="CarSides"]
-modulate = Color(0.137255, 0.470588, 0.615686, 1)
-texture = ExtResource("1_1gbon")
-
-[node name="Car2" type="Sprite2D" parent="CarSides"]
-modulate = Color(0.996078, 0.176471, 0.635294, 1)
-texture = ExtResource("2_akfpp")
-
-[node name="Car3" type="Sprite2D" parent="CarSides"]
-modulate = Color(0.396078, 0.768627, 0.447059, 1)
-texture = ExtResource("3_2a25d")
-
-[node name="Car4" type="Sprite2D" parent="CarSides"]
-modulate = Color(0.957808, 0.315578, 1.92523e-07, 1)
-texture = ExtResource("4_tu8c8")
+texture = ExtResource("6_hfvxb")
