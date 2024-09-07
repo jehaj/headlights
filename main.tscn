@@ -1,8 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://6tkwg0tjicre"]
+[gd_scene load_steps=5 format=3 uid="uid://6tkwg0tjicre"]
 
+[ext_resource type="Texture2D" uid="uid://bt7710qd3am1b" path="res://assets/vindue.png" id="1_8lkus"]
 [ext_resource type="Texture2D" uid="uid://cwvmkrbcf7m7a" path="res://assets/car_window_4x_transparent.png" id="1_skcmr"]
+[ext_resource type="Script" path="res://sprite_2d.gd" id="2_b2eod"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_i7la8"]
 
 [node name="root" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(811, 231)
+rotation = 3.14159
+scale = Vector2(568.397, -274.262)
+texture = SubResource("CurveXYZTexture_i7la8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(69.0001, 502)
+scale = Vector2(10, 10)
+texture = ExtResource("1_8lkus")
+script = ExtResource("2_b2eod")
 
 [node name="CarWindow" type="Sprite2D" parent="."]
 modulate = Color(0.647022, 0.996162, 0, 1)
