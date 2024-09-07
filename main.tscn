@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://6tkwg0tjicre"]
+[gd_scene load_steps=2 format=3 uid="uid://6tkwg0tjicre"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://cwvmkrbcf7m7a" path="res://assets/car_window_4x_transparent.png" id="1_skcmr"]
+
+[node name="root" type="Node2D"]
+
+[node name="CarWindow" type="Sprite2D" parent="."]
+modulate = Color(0.647022, 0.996162, 0, 1)
+position = Vector2(580, 302)
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("1_skcmr")
