@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4lnivaepqtkd"]
+
+[ext_resource type="Texture2D" uid="uid://wmsnp1uipkhi" path="res://assets/car1.png" id="5_6jxgx"]
+[ext_resource type="Texture2D" uid="uid://70wkijwc6u6h" path="res://assets/car2.png" id="6_e8liw"]
+[ext_resource type="Texture2D" uid="uid://big2a37lb86j1" path="res://assets/car3.png" id="7_ls45o"]
+[ext_resource type="Texture2D" uid="uid://b2jjdpc5kt2nd" path="res://assets/car4.png" id="8_my560"]
+
+[sub_resource type="Theme" id="Theme_t04k7"]
+default_font_size = 30
+
+[node name="root" type="Node2D"]
+
+[node name="CarSides" type="Node2D" parent="."]
+position = Vector2(580, 302)
+scale = Vector2(0.525, 0.525)
+
+[node name="Car1" type="Sprite2D" parent="CarSides"]
+modulate = Color(0.137255, 0.470588, 0.615686, 1)
+texture = ExtResource("5_6jxgx")
+
+[node name="Car2" type="Sprite2D" parent="CarSides"]
+modulate = Color(0.996078, 0.176471, 0.635294, 1)
+texture = ExtResource("6_e8liw")
+
+[node name="Car3" type="Sprite2D" parent="CarSides"]
+modulate = Color(0.396078, 0.768627, 0.447059, 1)
+texture = ExtResource("7_ls45o")
+
+[node name="Car4" type="Sprite2D" parent="CarSides"]
+modulate = Color(0.957808, 0.315578, 1.92523e-07, 1)
+texture = ExtResource("8_my560")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 221.0
+offset_top = 473.0
+offset_right = 1001.0
+offset_bottom = 560.0
+theme = SubResource("Theme_t04k7")
+text = "Du har påkørt din nevø. Du træder ud af bilen og ser han er kommet meget til skade. Bla. Bla. Bla."
