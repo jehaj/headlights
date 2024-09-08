@@ -36,11 +36,6 @@ animations = [{
 "loop": true,
 "name": &"stand",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
 }]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx8eu"]
@@ -55,11 +50,11 @@ sky = SubResource("Sky_668lj")
 [node name="root" type="Node3D"]
 
 [node name="CarWindow" type="AnimatableBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.291, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.77, 0)
 script = ExtResource("1_b50l2")
-minPos = 6.5
-maxPos = 13.5
-speed = 4.135
+minPos = -5.59
+maxPos = -0.795
+speed = 4.0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CarWindow"]
@@ -69,18 +64,19 @@ shape = SubResource("BoxShape3D_48bmv")
 [node name="CarWindowSprite3D" type="Sprite3D" parent="CarWindow"]
 modulate = Color(1, 1, 1, 0.403922)
 pixel_size = 0.04
+billboard = 2
 render_priority = -2
 texture = ExtResource("1_trb2e")
 
 [node name="Alien" type="RigidBody3D" parent="." node_paths=PackedStringArray("rayCast", "sprite")]
-transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, -2.95, 13.006, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.905, -0.81, 0)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-mass = 0.065
-gravity_scale = 0.5
+mass = 2.0
+gravity_scale = 1.5
 can_sleep = false
 script = ExtResource("3_wxyhl")
 rayCast = NodePath("RayCast3D")
@@ -98,41 +94,43 @@ animation = &"stand"
 target_position = Vector3(0, -0.525, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.81, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 environment = SubResource("Environment_eb3it")
 current = true
 
 [node name="CarParts" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.2879, 0)
 
 [node name="Car1" type="Sprite3D" parent="CarParts"]
 modulate = Color(0.396078, 0.768627, 0.447059, 1)
 pixel_size = 0.0058
+billboard = 2
 texture = ExtResource("2_5xjma")
 
 [node name="Car2" type="Sprite3D" parent="CarParts"]
 modulate = Color(0.996078, 0.176471, 0.635294, 1)
 pixel_size = 0.0058
+billboard = 2
 texture = ExtResource("3_xp6mu")
 
 [node name="Car3" type="Sprite3D" parent="CarParts"]
 modulate = Color(0.137255, 0.470588, 0.615686, 1)
 pixel_size = 0.0058
+billboard = 2
 texture = ExtResource("4_dhb8b")
 
 [node name="Car4" type="Sprite3D" parent="CarParts"]
 modulate = Color(0.881279, 0.407909, 0.965354, 1)
 pixel_size = 0.0058
+billboard = 2
 texture = ExtResource("5_7x3w2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.906308, -0.348291, 0.239374, 0, 0.566406, 0.824126, -0.422618, -0.746912, 0.513338, 0, 0, 0)
 
 [node name="Rock" type="AnimatableBody3D" parent="."]
-transform = Transform3D(76.17, 0, 0, 0, 76.17, 0, 0, 0, 76.17, 0, 8.37, -11.285)
 
 [node name="rock-a" parent="." instance=ExtResource("8_fsfc6")]
-transform = Transform3D(13.525, 0, 0, 0, 13.3395, 2.23227, 0, -2.23227, 13.3395, 0, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91322, 0, -3.19702)
 
 [node name="rock-b" parent="." instance=ExtResource("9_vebok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74021, 0, -3.87778)
