@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5ha8"]
 size = Vector3(1.82, 3.37, 1.88)
 
-[node name="MovingHelicopter" type="AnimatableBody3D" groups=["Obstacle"]]
+[node name="MovingBomb" type="AnimatableBody3D" groups=["Obstacle"]]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 script = ExtResource("1_ssytl")
 
