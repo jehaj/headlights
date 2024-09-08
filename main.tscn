@@ -1,32 +1,139 @@
-[gd_scene load_steps=8 format=3 uid="uid://v2pbpcu7x6yb"]
+[gd_scene load_steps=19 format=3 uid="uid://dmvhdcbd8dxox"]
 
-[ext_resource type="Shader" path="res://assets/greyscale.gdshader" id="1_hado2"]
-[ext_resource type="Texture2D" uid="uid://c4vq7pe2jb151" path="res://assets/aros.jpg" id="2_nc10b"]
-[ext_resource type="Script" path="res://aros.gd" id="3_wx44i"]
-[ext_resource type="Texture2D" uid="uid://bt7710qd3am1b" path="res://assets/vindue.png" id="4_ciyw0"]
-[ext_resource type="Script" path="res://sprite_2d.gd" id="5_jbbw1"]
-[ext_resource type="Texture2D" uid="uid://cwvmkrbcf7m7a" path="res://assets/car_window_4x_transparent.png" id="6_hfvxb"]
+[ext_resource type="Script" path="res://CarWindow.cs" id="1_b50l2"]
+[ext_resource type="Texture2D" uid="uid://bkjcvjrnfttjg" path="res://assets/alien.png" id="1_k4loc"]
+[ext_resource type="Texture2D" uid="uid://dsk1n58876sps" path="res://assets/vindue.png" id="1_trb2e"]
+[ext_resource type="Texture2D" uid="uid://c61wuuk2pxwx7" path="res://assets/car/car1.png" id="2_5xjma"]
+[ext_resource type="Script" path="res://Alien.cs" id="3_wxyhl"]
+[ext_resource type="Texture2D" uid="uid://bnuoohebj3e4v" path="res://assets/car/car2.png" id="3_xp6mu"]
+[ext_resource type="Texture2D" uid="uid://bg1njkn4vbo46" path="res://assets/car/car3.png" id="4_dhb8b"]
+[ext_resource type="Texture2D" uid="uid://dvbslrdcc4n5v" path="res://assets/alienJump.png" id="4_rfl7n"]
+[ext_resource type="Texture2D" uid="uid://d1ev0gk3t7j4j" path="res://assets/car/car4.png" id="5_7x3w2"]
+[ext_resource type="PackedScene" uid="uid://b1gkrxxtm2a3d" path="res://assets/rocks/rock-a.fbx" id="8_fsfc6"]
+[ext_resource type="PackedScene" uid="uid://cry21cmnfq1ta" path="res://assets/rocks/rock-b.fbx" id="9_vebok"]
+[ext_resource type="PackedScene" uid="uid://qowfjie6otjm" path="res://assets/rocks/rock-c.fbx" id="10_3hb5e"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fvk15"]
-shader = ExtResource("1_hado2")
+[sub_resource type="BoxShape3D" id="BoxShape3D_48bmv"]
+size = Vector3(3.465, 0.975, 1)
 
-[node name="root" type="Node2D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ctbus"]
+size = Vector3(0.675, 0.81, 1)
 
-[node name="Aros" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_fvk15")
-position = Vector2(524, 413)
-scale = Vector2(1.28125, 1.37326)
-texture = ExtResource("2_nc10b")
-script = ExtResource("3_wx44i")
+[sub_resource type="SpriteFrames" id="SpriteFrames_d83hq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rfl7n")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k4loc")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(69.0001, 502)
-scale = Vector2(10, 10)
-texture = ExtResource("4_ciyw0")
-script = ExtResource("5_jbbw1")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx8eu"]
 
-[node name="CarWindow" type="Sprite2D" parent="."]
-modulate = Color(0.647022, 0.996162, 0, 1)
-position = Vector2(580, 302)
-scale = Vector2(0.525, 0.525)
-texture = ExtResource("6_hfvxb")
+[sub_resource type="Sky" id="Sky_668lj"]
+sky_material = SubResource("ProceduralSkyMaterial_nx8eu")
+
+[sub_resource type="Environment" id="Environment_eb3it"]
+background_mode = 2
+sky = SubResource("Sky_668lj")
+
+[node name="root" type="Node3D"]
+
+[node name="CarWindow" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.77, 0)
+script = ExtResource("1_b50l2")
+minPos = -5.59
+maxPos = -0.795
+speed = 4.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CarWindow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.955, 1.745, 0)
+shape = SubResource("BoxShape3D_48bmv")
+
+[node name="CarWindowSprite3D" type="Sprite3D" parent="CarWindow"]
+modulate = Color(1, 1, 1, 0.403922)
+pixel_size = 0.04
+billboard = 2
+render_priority = -2
+texture = ExtResource("1_trb2e")
+
+[node name="Alien" type="RigidBody3D" parent="." node_paths=PackedStringArray("rayCast", "sprite")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.905, -0.81, 0)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 2.0
+gravity_scale = 1.5
+can_sleep = false
+script = ExtResource("3_wxyhl")
+rayCast = NodePath("RayCast3D")
+sprite = NodePath("AnimatedSprite3D")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Alien"]
+shape = SubResource("BoxShape3D_ctbus")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Alien"]
+sprite_frames = SubResource("SpriteFrames_d83hq")
+animation = &"stand"
+
+[node name="RayCast3D" type="RayCast3D" parent="Alien"]
+target_position = Vector3(0, -0.525, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+environment = SubResource("Environment_eb3it")
+current = true
+
+[node name="CarParts" type="Node3D" parent="."]
+
+[node name="Car1" type="Sprite3D" parent="CarParts"]
+modulate = Color(0.396078, 0.768627, 0.447059, 1)
+pixel_size = 0.0058
+billboard = 2
+texture = ExtResource("2_5xjma")
+
+[node name="Car2" type="Sprite3D" parent="CarParts"]
+modulate = Color(0.996078, 0.176471, 0.635294, 1)
+pixel_size = 0.0058
+billboard = 2
+texture = ExtResource("3_xp6mu")
+
+[node name="Car3" type="Sprite3D" parent="CarParts"]
+modulate = Color(0.137255, 0.470588, 0.615686, 1)
+pixel_size = 0.0058
+billboard = 2
+texture = ExtResource("4_dhb8b")
+
+[node name="Car4" type="Sprite3D" parent="CarParts"]
+modulate = Color(0.881279, 0.407909, 0.965354, 1)
+pixel_size = 0.0058
+billboard = 2
+texture = ExtResource("5_7x3w2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.906308, -0.348291, 0.239374, 0, 0.566406, 0.824126, -0.422618, -0.746912, 0.513338, 0, 0, 0)
+
+[node name="Rock" type="AnimatableBody3D" parent="."]
+
+[node name="rock-a" parent="." instance=ExtResource("8_fsfc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91322, 0, -3.19702)
+
+[node name="rock-b" parent="." instance=ExtResource("9_vebok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74021, 0, -3.87778)
+
+[node name="rock-c" parent="." instance=ExtResource("10_3hb5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55848, 0, -3.50412)
