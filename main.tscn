@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmvhdcbd8dxox"]
+[gd_scene load_steps=22 format=3 uid="uid://dmvhdcbd8dxox"]
 
 [ext_resource type="Script" path="res://CarWindow.cs" id="1_b50l2"]
 [ext_resource type="Texture2D" uid="uid://bkjcvjrnfttjg" path="res://assets/alien.png" id="1_k4loc"]
@@ -12,6 +12,17 @@
 [ext_resource type="PackedScene" uid="uid://b1gkrxxtm2a3d" path="res://assets/rocks/rock-a.fbx" id="8_fsfc6"]
 [ext_resource type="PackedScene" uid="uid://cry21cmnfq1ta" path="res://assets/rocks/rock-b.fbx" id="9_vebok"]
 [ext_resource type="PackedScene" uid="uid://qowfjie6otjm" path="res://assets/rocks/rock-c.fbx" id="10_3hb5e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6nbcg"]
+sky_top_color = Color(1, 0.619608, 0.501961, 1)
+
+[sub_resource type="Sky" id="Sky_cqbfy"]
+sky_material = SubResource("ProceduralSkyMaterial_6nbcg")
+
+[sub_resource type="Environment" id="Environment_cq4ve"]
+background_mode = 2
+background_energy_multiplier = 1.79
+sky = SubResource("Sky_cqbfy")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48bmv"]
 size = Vector3(3.465, 0.975, 1)
@@ -53,6 +64,9 @@ background_mode = 2
 sky = SubResource("Sky_668lj")
 
 [node name="root" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cq4ve")
 
 [node name="CarWindow" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.291, 0)
@@ -132,7 +146,7 @@ transform = Transform3D(0.906308, -0.348291, 0.239374, 0, 0.566406, 0.824126, -0
 transform = Transform3D(76.17, 0, 0, 0, 76.17, 0, 0, 0, 76.17, 0, 8.37, -11.285)
 
 [node name="rock-a" parent="." instance=ExtResource("8_fsfc6")]
-transform = Transform3D(13.525, 0, 0, 0, 13.3395, 2.23227, 0, -2.23227, 13.3395, 0, 0, -20)
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, -25)
 
 [node name="rock-b" parent="." instance=ExtResource("9_vebok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74021, 0, -3.87778)

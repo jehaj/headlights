@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddo7xuiy7cqx0"
-path.s3tc="res://.godot/imported/alienBlue_walk1.png-e99a928cf518c29723d9a1655175d7d6.s3tc.ctex"
+uid="uid://bhm60qto4rt60"
+path.s3tc="res://.godot/imported/alienBlue_hurt.png-c4b7fecc978dbc9b66bf57b77bc78e43.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/alien/alienBlue_walk1.png"
-dest_files=["res://.godot/imported/alienBlue_walk1.png-e99a928cf518c29723d9a1655175d7d6.s3tc.ctex"]
+source_file="res://assets/alien/alienBlue_hurt.png"
+dest_files=["res://.godot/imported/alienBlue_hurt.png-c4b7fecc978dbc9b66bf57b77bc78e43.s3tc.ctex"]
 
 [params]
 
