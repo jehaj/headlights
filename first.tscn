@@ -99,8 +99,8 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-mass = 0.065
-gravity_scale = 0.5
+mass = 0.5
+gravity_scale = 2.0
 can_sleep = false
 contact_monitor = true
 max_contacts_reported = 2
@@ -162,7 +162,6 @@ shadow_enabled = true
 script = ExtResource("10_6sac0")
 CarSpeed = 1.0
 MaxCarSpeed = 20.0
-bodies = PackedStringArray("res://assets/rocks/MovingRock.tscn")
 alien = NodePath("../Alien")
 
 [node name="MovingRock" parent="Node" instance=ExtResource("14_bmkd0")]
@@ -274,3 +273,4 @@ autoplay = true
 [connection signal="body_entered" from="Alien" to="Node" method="_on_alien_body_entered"]
 [connection signal="animation_finished" from="Alien/AnimatedSprite3D" to="Alien" method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="body_entered" from="Alien/Area3D" to="Node" method="_on_area_3d_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="Node" method="_on_audio_stream_player_finished"]

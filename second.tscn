@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://bh53jdk2h2dir"]
 
-[ext_resource type="PackedScene" uid="uid://cpih4rqhbolwo" path="res://assets/lvl2/patch_grass_dessert.tscn" id="1_lpfao"]
+[ext_resource type="PackedScene" path="res://assets/lvl2/patch_grass_dessert.tscn" id="1_lpfao"]
 [ext_resource type="Script" path="res://CarWindow.cs" id="1_lxiyl"]
 [ext_resource type="Texture2D" uid="uid://dsk1n58876sps" path="res://assets/vindue.png" id="2_pp836"]
 [ext_resource type="Script" path="res://Alien.cs" id="3_6rels"]
@@ -11,11 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bg1njkn4vbo46" path="res://assets/car/car3.png" id="8_k10sl"]
 [ext_resource type="Texture2D" uid="uid://d1ev0gk3t7j4j" path="res://assets/car/car4.png" id="9_e4ol3"]
 [ext_resource type="Script" path="res://GameController.cs" id="10_8gq5f"]
-[ext_resource type="PackedScene" uid="uid://c7gy6ylgyss6g" path="res://assets/lvl2/MovingRock2.tscn" id="12_dtkbp"]
-[ext_resource type="PackedScene" uid="uid://dijw3qqowugmw" path="res://assets/lvl2/broken_stuff.tscn" id="12_s3jkk"]
-[ext_resource type="PackedScene" uid="uid://c8awiialjj3gh" path="res://assets/lvl2/Bricks.tscn" id="13_s0xku"]
+[ext_resource type="PackedScene" path="res://assets/lvl2/MovingRock2.tscn" id="12_dtkbp"]
+[ext_resource type="PackedScene" path="res://assets/lvl2/broken_stuff.tscn" id="12_s3jkk"]
+[ext_resource type="PackedScene" path="res://assets/lvl2/Bricks.tscn" id="13_s0xku"]
 [ext_resource type="PackedScene" uid="uid://b6r71nwsltrdv" path="res://assets/rocks/MovingRock.tscn" id="14_ea1rh"]
-[ext_resource type="PackedScene" uid="uid://bwend2an7ucp4" path="res://assets/lvl2/sky1.tscn" id="14_xflrf"]
+[ext_resource type="PackedScene" path="res://assets/lvl2/sky1.tscn" id="14_xflrf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6nbcg"]
 sky_top_color = Color(1, 0.619608, 0.501961, 1)
@@ -73,7 +73,7 @@ sky_material = SubResource("ProceduralSkyMaterial_nx8eu")
 background_mode = 2
 sky = SubResource("Sky_668lj")
 
-[node name="root" type="Node3D"]
+[node name="root2" type="Node3D"]
 
 [node name="patch-grass" parent="." instance=ExtResource("1_lpfao")]
 transform = Transform3D(125.145, 0, 0, 0, 125.145, 0, 0, 0, 125.145, 0, 0, 0)

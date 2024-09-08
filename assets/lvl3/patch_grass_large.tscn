@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://brivuehete44b"]
+
+[ext_resource type="PackedScene" uid="uid://c0ats4dqjqv" path="res://assets/lvl1/patch-grass-large.fbx" id="1_8bykr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgqlt"]
+albedo_color = Color(0.999799, 0.245633, 0.188193, 1)
+
+[node name="patch-grass-large" instance=ExtResource("1_8bykr")]
+
+[node name="patch-grass-large" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pgqlt")

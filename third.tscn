@@ -1,30 +1,19 @@
-[gd_scene load_steps=25 format=3 uid="uid://ccvqwtfisa2ag"]
+[gd_scene load_steps=22 format=3 uid="uid://c404akq4spv1m"]
 
 [ext_resource type="Script" path="res://CarWindow.cs" id="1_d5r8b"]
 [ext_resource type="Texture2D" uid="uid://dsk1n58876sps" path="res://assets/vindue.png" id="2_lq8so"]
 [ext_resource type="Script" path="res://Alien.cs" id="3_dfw6d"]
 [ext_resource type="Texture2D" uid="uid://dvbslrdcc4n5v" path="res://assets/alienJump.png" id="4_ecde7"]
+[ext_resource type="Texture2D" uid="uid://ch34p7bvqj1db" path="res://assets/alien/alienBlue_swim1.png" id="4_wfg0y"]
 [ext_resource type="Texture2D" uid="uid://bkjcvjrnfttjg" path="res://assets/alien.png" id="5_3dfbo"]
+[ext_resource type="Texture2D" uid="uid://bhm60qto4rt60" path="res://assets/alien/alienBlue_hurt.png" id="5_u2t0f"]
 [ext_resource type="Texture2D" uid="uid://c61wuuk2pxwx7" path="res://assets/car/car1.png" id="6_306dx"]
 [ext_resource type="Texture2D" uid="uid://bnuoohebj3e4v" path="res://assets/car/car2.png" id="7_o7ew1"]
 [ext_resource type="Texture2D" uid="uid://bg1njkn4vbo46" path="res://assets/car/car3.png" id="8_ovay2"]
 [ext_resource type="Texture2D" uid="uid://d1ev0gk3t7j4j" path="res://assets/car/car4.png" id="9_in7ja"]
 [ext_resource type="Script" path="res://GameController.cs" id="10_5r7uy"]
-[ext_resource type="PackedScene" uid="uid://cry21cmnfq1ta" path="res://assets/rocks/rock-b.fbx" id="11_in8fm"]
-[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="12_ungyn"]
-[ext_resource type="PackedScene" uid="uid://qowfjie6otjm" path="res://assets/rocks/rock-c.fbx" id="13_gbmmc"]
-[ext_resource type="PackedScene" uid="uid://b6r71nwsltrdv" path="res://assets/rocks/MovingRock.tscn" id="14_fpwb4"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6nbcg"]
-sky_top_color = Color(1, 0.619608, 0.501961, 1)
-
-[sub_resource type="Sky" id="Sky_cqbfy"]
-sky_material = SubResource("ProceduralSkyMaterial_6nbcg")
-
-[sub_resource type="Environment" id="Environment_cq4ve"]
-background_mode = 2
-background_energy_multiplier = 1.79
-sky = SubResource("Sky_cqbfy")
+[ext_resource type="PackedScene" uid="uid://brivuehete44b" path="res://assets/lvl3/patch_grass_large.tscn" id="12_jticb"]
+[ext_resource type="AudioStream" uid="uid://3hustxh0gc30" path="res://assets/lvl1/CGJ Skov.mp3" id="18_pj485"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48bmv"]
 size = Vector3(3.465, 0.975, 0.265)
@@ -33,9 +22,23 @@ size = Vector3(3.465, 0.975, 0.265)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_wfg0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u2t0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3dfbo")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_ecde7")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -43,13 +46,8 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_3dfbo")
 }],
-"loop": true,
+"loop": false,
 "name": &"stand",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"walk",
 "speed": 5.0
 }]
 
@@ -60,6 +58,8 @@ size = Vector3(0.545, 0.935, 1)
 size = Vector3(4, 4, 56.57)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx8eu"]
+sky_top_color = Color(1, 0.24909, 0.225353, 1)
+ground_bottom_color = Color(1, 0.309092, 0.58822, 1)
 
 [sub_resource type="Sky" id="Sky_668lj"]
 sky_material = SubResource("ProceduralSkyMaterial_nx8eu")
@@ -69,9 +69,6 @@ background_mode = 2
 sky = SubResource("Sky_668lj")
 
 [node name="root" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cq4ve")
 
 [node name="CarWindow" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.291, 0)
@@ -98,8 +95,8 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-mass = 0.065
-gravity_scale = 0.5
+mass = 0.5
+gravity_scale = 2.0
 can_sleep = false
 contact_monitor = true
 max_contacts_reported = 2
@@ -153,31 +150,24 @@ modulate = Color(0.881279, 0.407909, 0.965354, 1)
 pixel_size = 0.0058
 texture = ExtResource("9_in7ja")
 
+[node name="patch-grass-large" parent="." instance=ExtResource("12_jticb")]
+transform = Transform3D(-10.4529, 0, -99.4522, 0, 100, 0, 99.4522, 0, -10.4529, 0, 0, -8.925)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.906308, -0.348291, 0.239374, 0, 0.566406, 0.824126, -0.422618, -0.746912, 0.513338, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Node" type="Node" parent="." node_paths=PackedStringArray("alien")]
 script = ExtResource("10_5r7uy")
 CarSpeed = 1.0
-bodies = PackedStringArray("res://assets/rocks/MovingRock.tscn")
+MaxCarSpeed = 20.0
 alien = NodePath("../Alien")
 
-[node name="rock-b" parent="Node" instance=ExtResource("11_in8fm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74021, 0, -3.87778)
-script = ExtResource("12_ungyn")
-
-[node name="rock-c" parent="Node" instance=ExtResource("13_gbmmc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55848, 0, -3.50412)
-script = ExtResource("12_ungyn")
-
-[node name="AnimatableBody3D" parent="Node" instance=ExtResource("14_fpwb4")]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 45.3457, 0, -25)
-
-[node name="Timer" type="Timer" parent="Node"]
-wait_time = 4.0
-autostart = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_pj485")
+autoplay = true
 
 [connection signal="body_entered" from="Alien" to="Node" method="_on_alien_body_entered"]
 [connection signal="animation_finished" from="Alien/AnimatedSprite3D" to="Alien" method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="body_entered" from="Alien/Area3D" to="Node" method="_on_area_3d_body_entered"]
-[connection signal="timeout" from="Node/Timer" to="Node" method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="Node" method="_on_audio_stream_player_finished"]
