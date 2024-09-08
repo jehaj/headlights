@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7gy6ylgyss6g"]
+
+[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_a5qra"]
+[ext_resource type="PackedScene" uid="uid://d3a7oe44irp5q" path="res://assets/lvl2/rocks-tall.fbx" id="2_34q4r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00fxx"]
+size = Vector3(0.687676, 0.583038, 0.74137)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" groups=["Obstacle"]]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, -25)
+script = ExtResource("1_a5qra")
+
+[node name="rocks-tall" parent="." instance=ExtResource("2_34q4r")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(0.999671, -0.0228778, -0.0112746, 0.0228793, 0.999735, 0, 0.0112716, -0.000257954, 0.999934, 0.0408922, 0.284252, 0.0867376)
+shape = SubResource("BoxShape3D_00fxx")

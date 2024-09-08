@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3a7oe44irp5q"
-path="res://.godot/imported/rocks-tall.fbx-b304900bc6f0e55c3d0d68bace17e107.scn"
+uid="uid://xasorwl3ww10"
+path="res://.godot/imported/stairs-corner.fbx-3b94506b183465eee4e31f5bc6c4e907.scn"
 
 [deps]
 
-source_file="res://assets/lvl2/rocks-tall.fbx"
-dest_files=["res://.godot/imported/rocks-tall.fbx-b304900bc6f0e55c3d0d68bace17e107.scn"]
+source_file="res://assets/lvl2/stairs-corner.fbx"
+dest_files=["res://.godot/imported/stairs-corner.fbx-3b94506b183465eee4e31f5bc6c4e907.scn"]
 
 [params]
 

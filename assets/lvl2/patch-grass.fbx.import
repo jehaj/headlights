@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3a7oe44irp5q"
-path="res://.godot/imported/rocks-tall.fbx-b304900bc6f0e55c3d0d68bace17e107.scn"
+uid="uid://ba23xpy1n4c88"
+path="res://.godot/imported/patch-grass.fbx-3a7059ba8dbfeb02f8cb9b2fb7954f28.scn"
 
 [deps]
 
-source_file="res://assets/lvl2/rocks-tall.fbx"
-dest_files=["res://.godot/imported/rocks-tall.fbx-b304900bc6f0e55c3d0d68bace17e107.scn"]
+source_file="res://assets/lvl2/patch-grass.fbx"
+dest_files=["res://.godot/imported/patch-grass.fbx-3a7059ba8dbfeb02f8cb9b2fb7954f28.scn"]
 
 [params]
 

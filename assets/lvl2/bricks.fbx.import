@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3a7oe44irp5q"
-path="res://.godot/imported/rocks-tall.fbx-b304900bc6f0e55c3d0d68bace17e107.scn"
+uid="uid://bt25ep063d5og"
+path="res://.godot/imported/bricks.fbx-9b5dc421c1362b0a1e4494733c4d7a3b.scn"
 
 [deps]
 
-source_file="res://assets/lvl2/rocks-tall.fbx"
-dest_files=["res://.godot/imported/rocks-tall.fbx-b304900bc6f0e55c3d0d68bace17e107.scn"]
+source_file="res://assets/lvl2/bricks.fbx"
+dest_files=["res://.godot/imported/bricks.fbx-9b5dc421c1362b0a1e4494733c4d7a3b.scn"]
 
 [params]
 

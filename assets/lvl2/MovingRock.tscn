@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvdprbi3vgfmr"]
+
+[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_y4lwj"]
+[ext_resource type="PackedScene" uid="uid://d0nb0bxg01omu" path="res://assets/lvl2/wallWoodBroken.fbx" id="2_gq3ot"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00fxx"]
+size = Vector3(0.53, 0.984436, 0.74137)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" groups=["Obstacle"]]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, -25)
+script = ExtResource("1_y4lwj")
+
+[node name="wallWoodBroken" parent="." instance=ExtResource("2_gq3ot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46036, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(0.999672, -0.0228778, -0.0112746, 0.0228793, 0.999737, 0, 0.0112716, -0.000257954, 0.999934, -0.0110503, 0.397617, 0.0861521)
+shape = SubResource("BoxShape3D_00fxx")

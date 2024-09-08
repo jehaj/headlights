@@ -92,7 +92,7 @@ pixel_size = 0.04
 render_priority = -2
 texture = ExtResource("1_trb2e")
 
-[node name="Alien" type="RigidBody3D" parent="." node_paths=PackedStringArray("rayCast", "sprite", "camera3D")]
+[node name="Alien" type="RigidBody3D" parent="." node_paths=PackedStringArray("rayCast", "sprite")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95, 13.006, 0)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
@@ -107,7 +107,6 @@ max_contacts_reported = 2
 script = ExtResource("3_wxyhl")
 rayCast = NodePath("RayCast3D")
 sprite = NodePath("AnimatedSprite3D")
-camera3D = NodePath("../Camera3D")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Alien"]
@@ -158,7 +157,7 @@ texture = ExtResource("5_7x3w2")
 transform = Transform3D(0.906308, -0.348291, 0.239374, 0, 0.566406, 0.824126, -0.422618, -0.746912, 0.513338, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Node" type="Node" parent="." node_paths=PackedStringArray("alien")]
+[node name="Node" type="Node" parent="."]
 script = ExtResource("10_6sac0")
 CarSpeed = 1.0
 MaxCarSpeed = 20.0
