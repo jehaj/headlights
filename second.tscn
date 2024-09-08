@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bh53jdk2h2dir"]
+[gd_scene load_steps=28 format=3 uid="uid://bh53jdk2h2dir"]
 
 [ext_resource type="PackedScene" path="res://assets/lvl2/patch_grass_dessert.tscn" id="1_lpfao"]
 [ext_resource type="Script" path="res://CarWindow.cs" id="1_lxiyl"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" path="res://assets/lvl2/Bricks.tscn" id="13_s0xku"]
 [ext_resource type="PackedScene" uid="uid://b6r71nwsltrdv" path="res://assets/rocks/MovingRock.tscn" id="14_ea1rh"]
 [ext_resource type="PackedScene" path="res://assets/lvl2/sky1.tscn" id="14_xflrf"]
+[ext_resource type="AudioStream" uid="uid://cn6k3tp6v6sng" path="res://assets/lvl2/CGJ Ødemark.mp3" id="17_0rcln"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6nbcg"]
 sky_top_color = Color(1, 0.619608, 0.501961, 1)
@@ -73,7 +74,7 @@ sky_material = SubResource("ProceduralSkyMaterial_nx8eu")
 background_mode = 2
 sky = SubResource("Sky_668lj")
 
-[node name="root2" type="Node3D"]
+[node name="second" type="Node3D"]
 
 [node name="patch-grass" parent="." instance=ExtResource("1_lpfao")]
 transform = Transform3D(125.145, 0, 0, 0, 125.145, 0, 0, 0, 125.145, 0, 0, 0)
@@ -183,6 +184,11 @@ transform = Transform3D(13.905, 0, 0, 0, 13.905, 0, 0, 0, 13.905, 98.9595, 0, -2
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 76.2136, 32.9165, -25)
 speed_delta = 0.595
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_0rcln")
+autoplay = true
+
 [connection signal="body_entered" from="Alien" to="Node" method="_on_alien_body_entered"]
 [connection signal="animation_finished" from="Alien/AnimatedSprite3D" to="Alien" method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="body_entered" from="Alien/Area3D" to="Node" method="_on_area_3d_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="Node" method="_on_audio_stream_player_finished"]

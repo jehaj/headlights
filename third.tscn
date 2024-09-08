@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c404akq4spv1m"]
+[gd_scene load_steps=28 format=3 uid="uid://c404akq4spv1m"]
 
 [ext_resource type="Script" path="res://CarWindow.cs" id="1_d5r8b"]
 [ext_resource type="Texture2D" uid="uid://dsk1n58876sps" path="res://assets/vindue.png" id="2_lq8so"]
@@ -13,7 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://d1ev0gk3t7j4j" path="res://assets/car/car4.png" id="9_in7ja"]
 [ext_resource type="Script" path="res://GameController.cs" id="10_5r7uy"]
 [ext_resource type="PackedScene" uid="uid://brivuehete44b" path="res://assets/lvl3/patch_grass_large.tscn" id="12_jticb"]
-[ext_resource type="AudioStream" uid="uid://3hustxh0gc30" path="res://assets/lvl1/CGJ Skov.mp3" id="18_pj485"]
+[ext_resource type="PackedScene" uid="uid://ie8dd3e1bu06" path="res://assets/lvl3/MovingCar.tscn" id="14_6vaum"]
+[ext_resource type="PackedScene" uid="uid://d3ydn6sxu0d5w" path="res://assets/lvl3/MovingHelicopter.tscn" id="15_2pvbd"]
+[ext_resource type="PackedScene" uid="uid://d3t7t7qd4kxi" path="res://assets/lvl3/MovingTent.tscn" id="16_o85xf"]
+[ext_resource type="PackedScene" uid="uid://dugqv5eao2p0o" path="res://assets/lvl3/MovingGraveA.tscn" id="17_ijr8q"]
+[ext_resource type="PackedScene" uid="uid://dsq45qtjb3ral" path="res://assets/lvl3/MovingGraveB.tscn" id="18_k5x2w"]
+[ext_resource type="PackedScene" uid="uid://bm0rcpyr35kp8" path="res://assets/lvl3/MovingBomb.tscn" id="20_p2pbg"]
+[ext_resource type="Script" path="res://EndController.cs" id="20_x8dpv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48bmv"]
 size = Vector3(3.465, 0.975, 0.265)
@@ -68,7 +74,7 @@ sky_material = SubResource("ProceduralSkyMaterial_nx8eu")
 background_mode = 2
 sky = SubResource("Sky_668lj")
 
-[node name="root" type="Node3D"]
+[node name="third" type="Node3D"]
 
 [node name="CarWindow" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.291, 0)
@@ -85,7 +91,7 @@ shape = SubResource("BoxShape3D_48bmv")
 [node name="CarWindowSprite3D" type="Sprite3D" parent="CarWindow"]
 modulate = Color(1, 1, 1, 0.403922)
 pixel_size = 0.04
-render_priority = -2
+render_priority = -4
 texture = ExtResource("2_lq8so")
 
 [node name="Alien" type="RigidBody3D" parent="." node_paths=PackedStringArray("rayCast", "sprite", "camera3D")]
@@ -108,6 +114,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Alien"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
+render_priority = -2
 sprite_frames = SubResource("SpriteFrames_d83hq")
 animation = &"stand"
 
@@ -159,13 +166,107 @@ shadow_enabled = true
 
 [node name="Node" type="Node" parent="." node_paths=PackedStringArray("alien")]
 script = ExtResource("10_5r7uy")
-CarSpeed = 1.0
-MaxCarSpeed = 20.0
+CarSpeed = 10.0
+MaxCarSpeed = 30.0
 alien = NodePath("../Alien")
 
+[node name="MovingCar" parent="Node" instance=ExtResource("14_6vaum")]
+transform = Transform3D(8.64392e-07, 2.99174, 19.775, 1.30773e-07, -19.775, 2.99174, 20, 0, -8.74228e-07, 19.2798, 8.88678, -25)
+
+[node name="MovingCar2" parent="Node" instance=ExtResource("14_6vaum")]
+transform = Transform3D(-18.5827, -1.1058, -7.31179, -1.7288e-06, -19.7751, 2.99071, -7.39493, 2.77876, 18.3737, 131.121, 8.88678, -25)
+
+[node name="MovingCar3" parent="Node" instance=ExtResource("14_6vaum")]
+transform = Transform3D(17.9203, -1.32795, -8.78066, -1.83899e-06, -19.7751, 2.99071, -8.88051, -2.67972, -17.7188, 318.451, 8.88678, -25)
+
+[node name="MovingCar4" parent="Node" instance=ExtResource("14_6vaum")]
+transform = Transform3D(-17.9523, 0.990481, 8.75983, 1.27324, 19.9563, 0.35287, -8.72322, 0.8744, -17.9761, 408.06, -0.330154, -25)
+
+[node name="MovingCar5" parent="Node" instance=ExtResource("14_6vaum")]
+transform = Transform3D(-17.5347, -1.43845, -9.51131, -1.97251e-06, -19.7751, 2.99071, -9.61948, 2.62206, 17.3376, 545.29, 8.88678, -25)
+
+[node name="MovingCar6" parent="Node" instance=ExtResource("14_6vaum")]
+transform = Transform3D(-17.7116, 1.38914, 9.18528, -2.23379e-06, -19.7751, 2.99071, 9.28974, 2.64851, 17.5125, 610.078, 8.88678, -25)
+
+[node name="MovingHelicopter" parent="Node" instance=ExtResource("15_2pvbd")]
+transform = Transform3D(-8.34542e-07, -5.95749, -19.0921, -2.6041e-07, 19.0921, -5.95749, 20, 0, -8.74228e-07, 128.115, 15.7333, -25)
+speed_delta = 2.0
+
+[node name="MovingHelicopter2" parent="Node" instance=ExtResource("15_2pvbd")]
+transform = Transform3D(-8.34542e-07, -5.95749, -19.0921, -2.6041e-07, 19.0921, -5.95749, 20, 0, -8.74228e-07, 296.939, 15.7333, -25)
+speed_delta = 2.0
+
+[node name="MovingHelicopter3" parent="Node" instance=ExtResource("15_2pvbd")]
+transform = Transform3D(-8.74228e-07, 5.9475, 19.0952, 0, 19.0952, -5.9475, -20, -2.59973e-07, -8.34678e-07, 449.505, 15.7333, -25)
+speed_delta = 2.0
+
+[node name="MovingHelicopter4" parent="Node" instance=ExtResource("15_2pvbd")]
+transform = Transform3D(-9.98488, -0.450416, -17.3234, -2.42575, -19.7601, 1.91193, -17.1586, 3.05562, 9.81046, 600.772, 43.5539, -25)
+speed_delta = 2.2
+
+[node name="MovingTent" parent="Node" instance=ExtResource("16_o85xf")]
+transform = Transform3D(16.81, 0, -10.8362, 0, 20, 0, 10.8362, 0, 16.81, 54.4997, 1.93265, -25)
+
+[node name="MovingTent2" parent="Node" instance=ExtResource("16_o85xf")]
+transform = Transform3D(-18.2342, 0, 8.2166, 0, 20, 0, -8.2166, 0, -18.2342, 428.577, 1.93265, -25)
+
+[node name="MovingGraveSmall" parent="Node" instance=ExtResource("17_ijr8q")]
+transform = Transform3D(-11.3732, 0, -3.82751, 0, 12, 0, 3.82751, 0, -11.3732, 86.8599, 0, -25)
+
+[node name="MovingGraveSmall5" parent="Node" instance=ExtResource("17_ijr8q")]
+transform = Transform3D(11.1339, 0, -4.47623, 0, 12, 0, 4.47623, 0, 11.1339, 487.428, 0, -25)
+
+[node name="MovingGraveSmall6" parent="Node" instance=ExtResource("17_ijr8q")]
+transform = Transform3D(11.1339, 0, -4.47623, 0, 12, 0, 4.47623, 0, 11.1339, 563.362, 0, -25)
+
+[node name="MovingGraveSmall7" parent="Node" instance=ExtResource("17_ijr8q")]
+transform = Transform3D(11.1339, 0, -4.47623, 0, 12, 0, 4.47623, 0, 11.1339, 600.981, 0, -25)
+
+[node name="MovingGraveSmall8" parent="Node" instance=ExtResource("17_ijr8q")]
+transform = Transform3D(11.1339, 0, -4.47623, 0, 12, 0, 4.47623, 0, 11.1339, 417.764, 0, -25)
+
+[node name="MovingGraveSmall2" parent="Node" instance=ExtResource("18_k5x2w")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 182.721, 0, -25)
+
+[node name="MovingGraveSmall3" parent="Node" instance=ExtResource("18_k5x2w")]
+transform = Transform3D(7.50113, 0, -12.9897, 0, 15, 0, 12.9897, 0, 7.50113, 232.123, 0, -25)
+
+[node name="MovingGraveSmall4" parent="Node" instance=ExtResource("18_k5x2w")]
+transform = Transform3D(7.50113, 0, -12.9897, 0, 15, 0, 12.9897, 0, 7.50113, 347.74, 0, -25)
+
+[node name="MovingGraveSmall9" parent="Node" instance=ExtResource("18_k5x2w")]
+transform = Transform3D(14.8974, 0, -1.7511, 0, 15, 0, 1.7511, 0, 14.8974, 423.674, 0, -25)
+
+[node name="MovingGraveSmall10" parent="Node" instance=ExtResource("18_k5x2w")]
+transform = Transform3D(14.8974, 0, -1.7511, 0, 15, 0, 1.7511, 0, 14.8974, 496.007, 0, -25)
+
+[node name="MovingGraveSmall11" parent="Node" instance=ExtResource("18_k5x2w")]
+transform = Transform3D(14.8974, 0, -1.7511, 0, 15, 0, 1.7511, 0, 14.8974, 513.495, 0, -25)
+
+[node name="MovingGraveSmall12" parent="Node" instance=ExtResource("18_k5x2w")]
+transform = Transform3D(14.8974, 0, -1.7511, 0, 15, 0, 1.7511, 0, 14.8974, 513.495, 0, -25)
+
+[node name="MovingBomb" parent="Node" instance=ExtResource("20_p2pbg")]
+transform = Transform3D(-2.51349, -2.57728, 0, 2.57728, -2.51349, 0, 0, 0, 3.6, 250.324, 24.0941, -32.2599)
+speed_delta = 1.3
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_pj485")
 autoplay = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(45, 0, 0, 0, 45, 0, 0, 0, 45, -1.31, 10.62, 0)
+visible = false
+modulate = Color(0.0154647, 3.60981e-08, 0.211207, 1)
+render_priority = 1
+texture = ExtResource("5_u2t0f")
+
+[node name="EndController" type="Node" parent="."]
+script = ExtResource("20_x8dpv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="Alien" to="Node" method="_on_alien_body_entered"]
 [connection signal="animation_finished" from="Alien/AnimatedSprite3D" to="Alien" method="_on_animated_sprite_3d_animation_finished"]

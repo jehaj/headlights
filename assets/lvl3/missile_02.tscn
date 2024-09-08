@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://s7ho0kurj6ex"]
+
+[ext_resource type="PackedScene" uid="uid://ef3cdushyjkp" path="res://assets/lvl3/Bomb/missile02.fbx" id="1_13usj"]
+[ext_resource type="Texture2D" uid="uid://dbic7wqd82jsb" path="res://assets/lvl3/Bomb/Texture/missile01_Diff.png" id="2_6wj4r"]
+[ext_resource type="Texture2D" uid="uid://6stduybw2sfa" path="res://assets/lvl3/Bomb/Texture/AO.png" id="3_nnr16"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxd16"]
+albedo_texture = ExtResource("2_6wj4r")
+ao_enabled = true
+ao_texture = ExtResource("3_nnr16")
+
+[node name="missile02" instance=ExtResource("1_13usj")]
+
+[node name="Cube_001" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mxd16")

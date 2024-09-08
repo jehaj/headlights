@@ -72,7 +72,7 @@ sky_material = SubResource("ProceduralSkyMaterial_nx8eu")
 background_mode = 2
 sky = SubResource("Sky_668lj")
 
-[node name="root" type="Node3D"]
+[node name="first" type="Node3D"]
 
 [node name="CarWindow" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.291, 0)

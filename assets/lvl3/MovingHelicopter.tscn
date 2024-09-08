@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3ydn6sxu0d5w"]
+
+[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_5dgxv"]
+[ext_resource type="PackedScene" uid="uid://dbr65fyki06h6" path="res://assets/lvl3/Aircraft.fbx" id="2_gjo2b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00fxx"]
+size = Vector3(0.635, 0.456, 1.946)
+
+[node name="MovingHelicopter" type="AnimatableBody3D" groups=["Obstacle"]]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+script = ExtResource("1_5dgxv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548, -0.212)
+shape = SubResource("BoxShape3D_00fxx")
+
+[node name="Aircraft" parent="." instance=ExtResource("2_gjo2b")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.561651, 0)

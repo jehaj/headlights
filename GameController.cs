@@ -13,6 +13,7 @@ public partial class GameController : Node
 	[Export]
 	public Alien alien;
 	public PackedScene secondScene;
+	public PackedScene thirdScene;
 	private Random random = new Random();
 
 	// Called when the node enters the scene tree for the first time.
@@ -30,6 +31,7 @@ public partial class GameController : Node
 			}
 		}
 		secondScene = GD.Load<PackedScene>("res://second.tscn");
+		thirdScene = GD.Load<PackedScene>("res://third.tscn");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,7 +57,7 @@ public partial class GameController : Node
 
 	public void _on_audio_stream_player_finished()
 	{
-		
-		GetTree().ChangeSceneToPacked(secondScene);
+		if(GetTree().Root.GetChild(0).Name.ToString() == "first") GetTree().ChangeSceneToPacked(secondScene);
+		if(GetTree().Root.GetChild(0).Name.ToString() == "second") GetTree().ChangeSceneToPacked(thirdScene);
 	}
 }

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm0rcpyr35kp8"]
+
+[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_ssytl"]
+[ext_resource type="PackedScene" uid="uid://s7ho0kurj6ex" path="res://assets/lvl3/missile_02.tscn" id="2_iyx72"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u5ha8"]
+size = Vector3(1.82, 3.37, 1.88)
+
+[node name="MovingHelicopter" type="AnimatableBody3D" groups=["Obstacle"]]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+script = ExtResource("1_ssytl")
+
+[node name="missile03" parent="." instance=ExtResource("2_iyx72")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.665, 0)
+shape = SubResource("BoxShape3D_u5ha8")

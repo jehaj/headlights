@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ie8dd3e1bu06"]
+
+[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_0onlv"]
+[ext_resource type="PackedScene" uid="uid://djadiq32etwwc" path="res://assets/lvl3/Scout_Car.fbx" id="2_muco3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00fxx"]
+size = Vector3(0.39, 0.45, 0.907)
+
+[node name="MovingCar" type="AnimatableBody3D" groups=["Obstacle"]]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+script = ExtResource("1_0onlv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.217, -0.061)
+shape = SubResource("BoxShape3D_00fxx")
+
+[node name="Scout_Car" parent="." instance=ExtResource("2_muco3")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.169162, 0)
