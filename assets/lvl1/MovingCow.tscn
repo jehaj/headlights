@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsabd0t7rm8a8"]
+
+[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_0bpke"]
+[ext_resource type="PackedScene" uid="uid://de13164xk8omh" path="res://assets/lvl1/animal-bison.fbx" id="2_pu0ej"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00fxx"]
+size = Vector3(0.765, 0.765, 0.525)
+
+[node name="MovingCow" type="AnimatableBody3D" groups=["Obstacle"]]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+script = ExtResource("1_0bpke")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0.31, 0)
+shape = SubResource("BoxShape3D_00fxx")
+
+[node name="animal-bison" parent="." instance=ExtResource("2_pu0ej")]

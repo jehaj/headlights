@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dmvhdcbd8dxox"]
+[gd_scene load_steps=26 format=3 uid="uid://dmvhdcbd8dxox"]
 
 [ext_resource type="Script" path="res://CarWindow.cs" id="1_b50l2"]
 [ext_resource type="Texture2D" uid="uid://bkjcvjrnfttjg" path="res://assets/alien.png" id="1_k4loc"]
@@ -7,24 +7,17 @@
 [ext_resource type="Script" path="res://Alien.cs" id="3_wxyhl"]
 [ext_resource type="Texture2D" uid="uid://bnuoohebj3e4v" path="res://assets/car/car2.png" id="3_xp6mu"]
 [ext_resource type="Texture2D" uid="uid://bg1njkn4vbo46" path="res://assets/car/car3.png" id="4_dhb8b"]
+[ext_resource type="Texture2D" uid="uid://ch34p7bvqj1db" path="res://assets/alien/alienBlue_swim1.png" id="4_fs0nw"]
 [ext_resource type="Texture2D" uid="uid://dvbslrdcc4n5v" path="res://assets/alienJump.png" id="4_rfl7n"]
 [ext_resource type="Texture2D" uid="uid://d1ev0gk3t7j4j" path="res://assets/car/car4.png" id="5_7x3w2"]
-[ext_resource type="PackedScene" uid="uid://cry21cmnfq1ta" path="res://assets/rocks/rock-b.fbx" id="9_vebok"]
-[ext_resource type="PackedScene" uid="uid://qowfjie6otjm" path="res://assets/rocks/rock-c.fbx" id="10_3hb5e"]
+[ext_resource type="Texture2D" uid="uid://bhm60qto4rt60" path="res://assets/alien/alienBlue_hurt.png" id="5_g15cn"]
 [ext_resource type="Script" path="res://GameController.cs" id="10_6sac0"]
-[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="11_b8jk2"]
+[ext_resource type="PackedScene" uid="uid://c0ats4dqjqv" path="res://assets/lvl1/patch-grass-large.fbx" id="14_2wn8x"]
 [ext_resource type="PackedScene" uid="uid://b6r71nwsltrdv" path="res://assets/rocks/MovingRock.tscn" id="14_bmkd0"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6nbcg"]
-sky_top_color = Color(1, 0.619608, 0.501961, 1)
-
-[sub_resource type="Sky" id="Sky_cqbfy"]
-sky_material = SubResource("ProceduralSkyMaterial_6nbcg")
-
-[sub_resource type="Environment" id="Environment_cq4ve"]
-background_mode = 2
-background_energy_multiplier = 1.79
-sky = SubResource("Sky_cqbfy")
+[ext_resource type="PackedScene" uid="uid://b8qje8a14e7n4" path="res://assets/lvl1/MovingTree.tscn" id="14_r5f50"]
+[ext_resource type="PackedScene" uid="uid://cip125n8erqy1" path="res://assets/lvl1/MovingPumpkin.tscn" id="16_4ddl8"]
+[ext_resource type="PackedScene" uid="uid://bsabd0t7rm8a8" path="res://assets/lvl1/MovingCow.tscn" id="16_gy6me"]
+[ext_resource type="AudioStream" uid="uid://3hustxh0gc30" path="res://assets/lvl1/CGJ Skov.mp3" id="18_wv17e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48bmv"]
 size = Vector3(3.465, 0.975, 0.265)
@@ -33,9 +26,23 @@ size = Vector3(3.465, 0.975, 0.265)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_fs0nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g15cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_k4loc")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_rfl7n")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -43,13 +50,8 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_k4loc")
 }],
-"loop": true,
+"loop": false,
 "name": &"stand",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"walk",
 "speed": 5.0
 }]
 
@@ -60,6 +62,8 @@ size = Vector3(0.545, 0.935, 1)
 size = Vector3(4, 4, 56.57)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx8eu"]
+sky_top_color = Color(0.652046, 0.852965, 1, 1)
+ground_bottom_color = Color(0.188235, 0.603922, 0.478431, 1)
 
 [sub_resource type="Sky" id="Sky_668lj"]
 sky_material = SubResource("ProceduralSkyMaterial_nx8eu")
@@ -69,9 +73,6 @@ background_mode = 2
 sky = SubResource("Sky_668lj")
 
 [node name="root" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cq4ve")
 
 [node name="CarWindow" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.291, 0)
@@ -155,29 +156,121 @@ texture = ExtResource("5_7x3w2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.906308, -0.348291, 0.239374, 0, 0.566406, 0.824126, -0.422618, -0.746912, 0.513338, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Node" type="Node" parent="." node_paths=PackedStringArray("alien")]
 script = ExtResource("10_6sac0")
 CarSpeed = 1.0
+MaxCarSpeed = 20.0
 bodies = PackedStringArray("res://assets/rocks/MovingRock.tscn")
 alien = NodePath("../Alien")
 
-[node name="rock-b" parent="Node" instance=ExtResource("9_vebok")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74021, 0, -3.87778)
-script = ExtResource("11_b8jk2")
+[node name="MovingRock" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 14.6545, 0, -25)
 
-[node name="rock-c" parent="Node" instance=ExtResource("10_3hb5e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55848, 0, -3.50412)
-script = ExtResource("11_b8jk2")
+[node name="MovingRock2" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 72.2194, 0, -25)
 
-[node name="AnimatableBody3D" parent="Node" instance=ExtResource("14_bmkd0")]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 45.3457, 0, -25)
+[node name="MovingRock3" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 124.557, 0, -25)
 
-[node name="Timer" type="Timer" parent="Node"]
-wait_time = 4.0
-autostart = true
+[node name="MovingRock4" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 176.948, 0, -25)
+
+[node name="MovingRock5" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 269.817, 0, -25)
+
+[node name="MovingRock6" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 375.505, 0, -25)
+
+[node name="MovingRock7" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 430.71, 0, -25)
+
+[node name="MovingRock8" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 488.74, 0, -25)
+
+[node name="MovingRock9" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 531.022, 0, -25)
+
+[node name="MovingRock10" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 620.867, 0, -25)
+
+[node name="MovingRock11" parent="Node" instance=ExtResource("14_bmkd0")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 726.392, 0, -25)
+
+[node name="MovingTree" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 43.9319, 0, -25)
+
+[node name="MovingTree2" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 99.5275, 0, -25)
+
+[node name="MovingTree3" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 229.438, 0, -25)
+
+[node name="MovingTree4" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 305.337, 0, -25)
+
+[node name="MovingTree5" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 356.034, 0, -25)
+
+[node name="MovingTree6" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 388.842, 0, -25)
+
+[node name="MovingTree7" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 447.692, 0, -25)
+
+[node name="MovingTree8" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 548.482, 0, -25)
+
+[node name="MovingTree9" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 602.597, 0, -25)
+
+[node name="MovingTree10" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 650.962, 0, -25)
+
+[node name="MovingTree11" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 786.927, 0, -25)
+
+[node name="MovingTree12" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 846.792, 0, -25)
+
+[node name="MovingTree13" parent="Node" instance=ExtResource("14_r5f50")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 928.303, 0, -25)
+
+[node name="MovingCow" parent="Node" instance=ExtResource("16_gy6me")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 205.41, 0, -25)
+
+[node name="MovingCow2" parent="Node" instance=ExtResource("16_gy6me")]
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 321.75, 0, -25)
+
+[node name="MovingCow3" parent="Node" instance=ExtResource("16_gy6me")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 405.781, 0, -25)
+
+[node name="MovingCow4" parent="Node" instance=ExtResource("16_gy6me")]
+transform = Transform3D(-12, 0, -1.04907e-06, 0, 12, 0, 1.04907e-06, 0, -12, 587.912, 0, -25)
+
+[node name="MovingCow5" parent="Node" instance=ExtResource("16_gy6me")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 671.96, 0, -25)
+
+[node name="MovingPumpkin" parent="Node" instance=ExtResource("16_4ddl8")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 463.855, 0, -25)
+
+[node name="MovingPumpkin3" parent="Node" instance=ExtResource("16_4ddl8")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 780.091, 0, -25)
+
+[node name="MovingPumpkin4" parent="Node" instance=ExtResource("16_4ddl8")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 724.363, 5.54867, -25)
+
+[node name="MovingPumpkin2" parent="Node" instance=ExtResource("16_4ddl8")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 331.036, 0, -25)
+
+[node name="patch-grass-large" parent="Node" instance=ExtResource("14_2wn8x")]
+transform = Transform3D(118.465, 0, 0, 0, 118.465, 0, 0, 0, 118.465, 22.7472, 0, -46.3235)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_wv17e")
+autoplay = true
 
 [connection signal="body_entered" from="Alien" to="Node" method="_on_alien_body_entered"]
 [connection signal="animation_finished" from="Alien/AnimatedSprite3D" to="Alien" method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="body_entered" from="Alien/Area3D" to="Node" method="_on_area_3d_body_entered"]
-[connection signal="timeout" from="Node/Timer" to="Node" method="_on_timer_timeout"]

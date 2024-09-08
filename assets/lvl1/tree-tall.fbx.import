@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5v66wny5a6f7"
-path="res://.godot/imported/tree.fbx-95c6ba1138061638d00ac05c21add5eb.scn"
+uid="uid://bl4kp33opwe8t"
+path="res://.godot/imported/tree-tall.fbx-1aa64eaf4b0e5610b88f5cba0d4ce014.scn"
 
 [deps]
 
-source_file="res://assets/tree.fbx"
-dest_files=["res://.godot/imported/tree.fbx-95c6ba1138061638d00ac05c21add5eb.scn"]
+source_file="res://assets/lvl1/tree-tall.fbx"
+dest_files=["res://.godot/imported/tree-tall.fbx-1aa64eaf4b0e5610b88f5cba0d4ce014.scn"]
 
 [params]
 

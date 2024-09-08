@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dorgxsllm72vj"
+path="res://.godot/imported/stone-wall-damaged.obj-8be07a958996b7fa0ce17b29dfebf253.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stone-wall-damaged.obj-8be07a958996b7fa0ce17b29dfebf253.mesh"]
+
+source_file="res://assets/lvl2/stone-wall-damaged.obj"
+dest_files=["res://.godot/imported/stone-wall-damaged.obj-8be07a958996b7fa0ce17b29dfebf253.mesh", "res://.godot/imported/stone-wall-damaged.obj-8be07a958996b7fa0ce17b29dfebf253.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

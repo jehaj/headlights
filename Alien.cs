@@ -17,22 +17,25 @@ public partial class Alien : RigidBody3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
-		string animation = rayCast.IsColliding() && sprite.Animation != "hit" ? "stand" : "jump";
-		sprite.Animation = animation;
-
 		Vector3 direction = this.Position - camera3D.Position;
 		direction = direction.Normalized();
 		Node3D col = (Node3D) this.GetNode("Area3D");
 		col.LookAt(direction+this.Position);
+
+		if (sprite.Animation == "hit") return;
+		string animation = rayCast.IsColliding() ? "stand" : "jump";
+		sprite.Animation = animation;
 	}
 
 	public void hit() {
 		GD.Print("I hit sometjing");
-		sprite.Animation = "hit";
+		sprite.Play("hit");
 	}
 
 	public void _on_animated_sprite_3d_animation_finished() {
+		GD.Print("animation finished");
 		if (sprite.Animation == "hit") {
+			GD.Print("Changing back to normal.");
 			sprite.Animation = "stand";	
 		}
 	}

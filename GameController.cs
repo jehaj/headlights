@@ -11,7 +11,6 @@ public partial class GameController : Node
 	public float MaxCarSpeed { get; set; } = 5f;
 	[Export]
 	public string[] bodies = new string[0];
-	public List<PackedScene> packedScenes = new();
 	[Export]
 	public Alien alien;
 
@@ -21,14 +20,13 @@ public partial class GameController : Node
 		for (int i = 0; i < bodies.Length; i++)
 		{
 			string scenePath = bodies[i];
-			packedScenes.Add(GD.Load<PackedScene>(scenePath));
 		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		this.CarSpeed = this.CarSpeed + 0.01f;
+		this.CarSpeed = this.CarSpeed + 2f * (float) delta;
 		this.CarSpeed = Math.Clamp(this.CarSpeed, 0, MaxCarSpeed);
 	}
 
@@ -40,14 +38,7 @@ public partial class GameController : Node
 		if (!body.IsInGroup("Obstacle")) return;
 		GD.Print("You hit the rock!");
 		alien.hit();
-		this.CarSpeed -= 2;
+		this.CarSpeed -= 10;
 
-	}
-
-	public void _on_timer_timeout() {
-		GD.Print("Spawning child");
-		Node3D instance = (Node3D) packedScenes[0].Instantiate();
-		instance.Position = new Vector3(45, 0, -25);
-		this.AddChild(instance);
 	}
 }
