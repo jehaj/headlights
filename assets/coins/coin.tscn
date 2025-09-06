@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgavfnhorpx1m"]
+
+[ext_resource type="Script" uid="uid://dds56aa7alx0x" path="res://rotator.gd" id="1_mourt"]
+[ext_resource type="Script" uid="uid://bi77ndi648g5t" path="res://mover.gd" id="1_q7dbp"]
+[ext_resource type="PackedScene" uid="uid://c8vglrcbsakjo" path="res://assets/coins/coin.glb" id="1_w4kth"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q7dbp"]
+size = Vector3(0.117432, 0.271484, 0.308838)
+
+[node name="Coin" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 3, 0, 3, 0, -1, 0, -1.31134e-07, 0, 0, 0)
+script = ExtResource("1_q7dbp")
+speed_delta = 0.2
+
+[node name="coin_model" parent="." instance=ExtResource("1_w4kth")]
+script = ExtResource("1_mourt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="coin_model" groups=["Coin"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="coin_model/StaticBody3D"]
+shape = SubResource("BoxShape3D_q7dbp")

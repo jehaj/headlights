@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwend2an7ucp4"]
 
-[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_3fhfs"]
+[ext_resource type="Script" uid="uid://bi77ndi648g5t" path="res://mover.gd" id="1_6ykdu"]
 [ext_resource type="Texture2D" uid="uid://dggp0cal8njaf" path="res://assets/lvl2/splat08.png" id="2_ygugd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00fxx"]
@@ -8,8 +8,7 @@ size = Vector3(1.98088, 1.96503, 0.755273)
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" groups=["Obstacle"]]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, -25)
-script = ExtResource("1_3fhfs")
-speed_delta = 0.295
+script = ExtResource("1_6ykdu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
 transform = Transform3D(0.999997, 0, 0, 0, 0.999999, 0, 0, 0, 0.999997, -0.107021, 0.305172, 0.0685728)

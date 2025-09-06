@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cip125n8erqy1"]
 
-[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_2yte4"]
+[ext_resource type="Script" uid="uid://bi77ndi648g5t" path="res://mover.gd" id="1_503ii"]
 [ext_resource type="PackedScene" uid="uid://mruvaltendpi" path="res://assets/lvl1/graveyard/pumpkin.fbx" id="2_p0o07"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00fxx"]
@@ -8,7 +8,7 @@ size = Vector3(0.36, 0.395, 0.345)
 
 [node name="MovingPumpkin" type="AnimatableBody3D" groups=["Obstacle"]]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-script = ExtResource("1_2yte4")
+script = ExtResource("1_503ii")
 
 [node name="pumpkin" parent="." instance=ExtResource("2_p0o07")]
 
