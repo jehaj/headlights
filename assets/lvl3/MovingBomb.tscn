@@ -9,9 +9,9 @@ size = Vector3(1.82, 3.37, 1.88)
 [node name="MovingBomb" type="AnimatableBody3D" groups=["Obstacle"]]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 script = ExtResource("1_0t34h")
+speed_delta = 2.5
 
 [node name="missile03" parent="." instance=ExtResource("2_iyx72")]
-script = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.665, 0)

@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="headlights"
 
+[filesystem]
+
+import/fbx2gltf/enabled=false
+
 [global_group]
 
 Obstacle=""

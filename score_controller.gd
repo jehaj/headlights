@@ -1,7 +1,5 @@
 class_name SceneController extends Node3D
 
-var score = (Global).score
-
 @onready var hunner = $Hunner
 @onready var tenner = $Tenner
 @onready var oner = $Oner
@@ -20,7 +18,7 @@ func _ready() -> void:
 	var numbers = load_numbers()
 	var i = 0
 	for number in numbers:
-		var score_idx = score / 100 % 10
+		var score_idx = Global.score / 100 % 10
 		var node: Node3D = number.duplicate()
 		if i == score_idx:
 			node.visible = true
@@ -28,7 +26,7 @@ func _ready() -> void:
 		i += 1
 	i = 0
 	for number in numbers:
-		var score_idx = score / 10 % 10
+		var score_idx = Global.score / 10 % 10
 		var node: Node3D = number.duplicate()
 		if i == score_idx:
 			node.visible = true
@@ -36,7 +34,7 @@ func _ready() -> void:
 		i += 1
 	i = 0
 	for number in numbers:
-		var score_idx = score % 10
+		var score_idx = Global.score % 10
 		var node: Node3D = number
 		if i == score_idx:
 			node.visible = true
@@ -47,12 +45,12 @@ func increase_score():
 	increase_system(oner, 1)
 	increase_system(tenner, 10)
 	increase_system(hunner, 100)
-	score += 1
-	print("You got a point! Score is now %d" % score)
+	Global.score += 1
+	print("You got a point! Score is now %d" % Global.score)
 
 func increase_system(p: Node3D, m: int):
-	var next_score = score + 1
-	var score_idx = score / m % 10
+	var next_score = Global.score + 1
+	var score_idx = Global.score / m % 10
 	var next_score_idx = next_score / m % 10
 	if score_idx == next_score_idx:
 		return

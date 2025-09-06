@@ -9,6 +9,7 @@ size = Vector3(0.635, 0.456, 1.946)
 [node name="MovingHelicopter" type="AnimatableBody3D" groups=["Obstacle"]]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 script = ExtResource("1_vwm63")
+speed_delta = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548, -0.212)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8qje8a14e7n4"]
 
 [ext_resource type="Script" uid="uid://bi77ndi648g5t" path="res://mover.gd" id="1_2jkio"]
-[ext_resource type="PackedScene" uid="uid://bl4kp33opwe8t" path="res://assets/lvl1/tree-tall.fbx" id="2_s1yf0"]
+[ext_resource type="PackedScene" uid="uid://cd1vi4ae1u1wk" path="res://assets/lvl1/tree_pineTallC.glb" id="2_2jkio"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00fxx"]
 size = Vector3(0.53, 1, 0.45)
@@ -10,7 +10,8 @@ size = Vector3(0.53, 1, 0.45)
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 script = ExtResource("1_2jkio")
 
-[node name="tree-tall" parent="." instance=ExtResource("2_s1yf0")]
+[node name="tree_tall" parent="." instance=ExtResource("2_2jkio")]
+transform = Transform3D(1.08, 0, 0, 0, 1.08, 0, 0, 0, 1.08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Obstacle"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18, 0)
