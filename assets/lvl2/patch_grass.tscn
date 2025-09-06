@@ -1,11 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://clywhspxgtovc"]
 
-[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_54mn4"]
 [ext_resource type="PackedScene" uid="uid://ljit4hbu6la4" path="res://assets/lvl2/patch-grass-large.fbx" id="2_08uxj"]
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" groups=["Obstacle"]]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, -25)
-script = ExtResource("1_54mn4")
 
 [node name="patch-grass-large" parent="." instance=ExtResource("2_08uxj")]
 transform = Transform3D(1.475, 0, 0, 0, 1.475, 0, 0, 0, 1.475, 0, 0, 0)

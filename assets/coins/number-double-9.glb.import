@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bl4kp33opwe8t"
-path="res://.godot/imported/tree-tall.fbx-1aa64eaf4b0e5610b88f5cba0d4ce014.scn"
+uid="uid://lni1ayqix6d4"
+path="res://.godot/imported/number-double-9.glb-f3d2faff775fbba81184849b1212b091.scn"
 
 [deps]
 
-source_file="res://assets/lvl1/tree-tall.fbx"
-dest_files=["res://.godot/imported/tree-tall.fbx-1aa64eaf4b0e5610b88f5cba0d4ce014.scn"]
+source_file="res://assets/coins/number-double-9.glb"
+dest_files=["res://.godot/imported/number-double-9.glb-f3d2faff775fbba81184849b1212b091.scn"]
 
 [params]
 
@@ -18,6 +18,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -27,11 +28,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dijw3qqowugmw"]
 
-[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_5lsun"]
+[ext_resource type="Script" uid="uid://bi77ndi648g5t" path="res://mover.gd" id="1_hn1l5"]
 [ext_resource type="PackedScene" uid="uid://d0nb0bxg01omu" path="res://assets/lvl2/wallWoodBroken.fbx" id="2_ceaqd"]
 [ext_resource type="PackedScene" uid="uid://ihjgnkjuacb7" path="res://assets/lvl2/treeLog.tscn" id="3_kar6w"]
 
@@ -9,7 +9,7 @@ size = Vector3(0.53, 0.831055, 0.755273)
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" groups=["Obstacle"]]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, -25)
-script = ExtResource("1_5lsun")
+script = ExtResource("1_hn1l5")
 
 [node name="wallWoodBroken" parent="." instance=ExtResource("2_ceaqd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.383706, 0, 0)
@@ -20,3 +20,4 @@ shape = SubResource("BoxShape3D_00fxx")
 
 [node name="AnimatableBody3D" parent="." instance=ExtResource("3_kar6w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.726863, 0, 0.269525)
+script = null

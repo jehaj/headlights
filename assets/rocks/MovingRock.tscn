@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6r71nwsltrdv"]
 
-[ext_resource type="Script" path="res://assets/rocks/MovingRock.cs" id="1_pnju3"]
+[ext_resource type="Script" uid="uid://bi77ndi648g5t" path="res://mover.gd" id="1_gufn7"]
 [ext_resource type="PackedScene" uid="uid://b1gkrxxtm2a3d" path="res://assets/rocks/rock-a.fbx" id="2_yqrnd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00fxx"]
@@ -8,7 +8,7 @@ size = Vector3(0.53, 0.375, 0.45)
 
 [node name="MovingRock" type="AnimatableBody3D" groups=["Obstacle"]]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
-script = ExtResource("1_pnju3")
+script = ExtResource("1_gufn7")
 
 [node name="rock-a" parent="." groups=["Obstacle"] instance=ExtResource("2_yqrnd")]
 
