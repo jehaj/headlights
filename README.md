@@ -1,6 +1,6 @@
 # Headlights
 Created as part of EPIC-WE Cultural Game Jam #02: Hosted by Aarhus Hub
-https://itch.io/jam/epic-we-02-aarhus/rate/2956121
+https://itch.io/jam/epic-we-02-aarhus/rate/2956121 by Nicklas, Lea, Valdemar and Nikolaj.
 
 Inspired by the Just These and Sawdy 46 artworks at the exhibition at ARoS, this side-scroller game uses gameplay to show how many of us attempt to avoid taking responsibility by simply ignoring our surroundings. In this game, the character drives a car inspired by the Sawdy 46 car door. In the car window, the character imagines a side-scroller game to pass the time. The game features a small character dodging obstacles mirroring the surroundings outside the car. 
 
