@@ -16,30 +16,15 @@ func load_numbers() -> Array[Node]:
 
 func _ready() -> void:
 	var numbers = load_numbers()
-	var i = 0
-	for number in numbers:
-		var score_idx = Global.score / 100 % 10
-		var node: Node3D = number.duplicate()
-		if i == score_idx:
-			node.visible = true
-		hunner.add_child(node)
-		i += 1
-	i = 0
-	for number in numbers:
-		var score_idx = Global.score / 10 % 10
-		var node: Node3D = number.duplicate()
-		if i == score_idx:
-			node.visible = true
-		tenner.add_child(node)
-		i += 1
-	i = 0
-	for number in numbers:
-		var score_idx = Global.score % 10
-		var node: Node3D = number
-		if i == score_idx:
-			node.visible = true
-		oner.add_child(node)
-		i += 1
+	add_digit(hunner, numbers, Global.score / 100 % 10, true)
+	add_digit(tenner, numbers, Global.score / 10 % 10, true)
+	add_digit(oner, numbers, Global.score % 10, false)
+
+func add_digit(parent: Node, numbers: Array, digit: int, duplicate: bool = true) -> void:
+	for i in range(numbers.size()):
+		var node: Node3D = numbers[i].duplicate() if duplicate else numbers[i]
+		node.visible = (i == digit)
+		parent.add_child(node)
 
 func increase_score():
 	increase_system(oner, 1)
