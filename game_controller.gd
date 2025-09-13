@@ -30,6 +30,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		print("You hit an obstacle!")
 		alien.hit()
 		self.car_speed -= 10
+		(get_tree().root.get_child(1).get_node("ScoreController") as SceneController).update_score(-5)
 	elif body.is_in_group("Coin"):
 		body.get_node("../..").queue_free()
 		(get_tree().root.get_child(1).get_node("ScoreController") as SceneController).increase_score()

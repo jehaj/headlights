@@ -42,14 +42,19 @@ func _ready() -> void:
 		i += 1
 
 func increase_score():
-	increase_system(oner, 1)
-	increase_system(tenner, 10)
-	increase_system(hunner, 100)
-	Global.score += 1
-	print("You got a point! Score is now %d" % Global.score)
+	update_score(1)
 
-func increase_system(p: Node3D, m: int):
-	var next_score = Global.score + 1
+func update_score(amount: int):
+	if amount < 0:
+		amount = max(amount, -Global.score)
+	increase_system(amount, oner, 1)
+	increase_system(amount, tenner, 10)
+	increase_system(amount, hunner, 100)
+	Global.score += amount
+	print("You got ", amount, " points! Score is now %d" % Global.score)
+
+func increase_system(amount: int, p: Node3D, m: int):
+	var next_score = Global.score + amount
 	var score_idx = Global.score / m % 10
 	var next_score_idx = next_score / m % 10
 	if score_idx == next_score_idx:

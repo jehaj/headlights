@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bh53jdk2h2dir"]
+[gd_scene load_steps=36 format=3 uid="uid://bh53jdk2h2dir"]
 
 [ext_resource type="PackedScene" uid="uid://cpih4rqhbolwo" path="res://assets/lvl2/patch_grass_dessert.tscn" id="1_lpfao"]
 [ext_resource type="Script" uid="uid://dds56aa7alx0x" path="res://rotator.gd" id="2_ew34d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c8aaeaew0cbrl" path="res://alien.gd" id="4_cq3jk"]
 [ext_resource type="Texture2D" uid="uid://ch34p7bvqj1db" path="res://assets/alien/alienBlue_swim1.png" id="5_2t7py"]
 [ext_resource type="Texture2D" uid="uid://bkjcvjrnfttjg" path="res://assets/alien.png" id="5_pvr24"]
+[ext_resource type="PackedScene" uid="uid://fdbwlhta7m5n" path="res://assets/coins/coin_drop.tscn" id="6_3c4nw"]
 [ext_resource type="Texture2D" uid="uid://c61wuuk2pxwx7" path="res://assets/car/car1.png" id="6_h4eed"]
 [ext_resource type="Texture2D" uid="uid://bhm60qto4rt60" path="res://assets/alien/alienBlue_hurt.png" id="6_mlb6r"]
 [ext_resource type="Texture2D" uid="uid://bnuoohebj3e4v" path="res://assets/car/car2.png" id="7_4g0vf"]
@@ -131,6 +132,7 @@ script = ExtResource("4_cq3jk")
 ray_cast = NodePath("RayCast3D")
 sprite = NodePath("AnimatedSprite3D")
 camera3D = NodePath("../Camera3D")
+coin_drop_scene = ExtResource("6_3c4nw")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Alien"]

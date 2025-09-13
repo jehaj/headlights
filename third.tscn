@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://c404akq4spv1m"]
+[gd_scene load_steps=33 format=3 uid="uid://c404akq4spv1m"]
 
 [ext_resource type="Script" uid="uid://bhtt7rlwlitb5" path="res://car_window.gd" id="1_x64y5"]
 [ext_resource type="Texture2D" uid="uid://dsk1n58876sps" path="res://assets/vindue.png" id="2_lq8so"]
 [ext_resource type="Script" uid="uid://c8aaeaew0cbrl" path="res://alien.gd" id="3_hm24l"]
 [ext_resource type="Texture2D" uid="uid://dvbslrdcc4n5v" path="res://assets/alienJump.png" id="4_ecde7"]
+[ext_resource type="PackedScene" uid="uid://fdbwlhta7m5n" path="res://assets/coins/coin_drop.tscn" id="4_qw7m1"]
 [ext_resource type="Texture2D" uid="uid://ch34p7bvqj1db" path="res://assets/alien/alienBlue_swim1.png" id="4_wfg0y"]
 [ext_resource type="Texture2D" uid="uid://bkjcvjrnfttjg" path="res://assets/alien.png" id="5_3dfbo"]
 [ext_resource type="Texture2D" uid="uid://bhm60qto4rt60" path="res://assets/alien/alienBlue_hurt.png" id="5_u2t0f"]
@@ -111,6 +112,7 @@ script = ExtResource("3_hm24l")
 ray_cast = NodePath("RayCast3D")
 sprite = NodePath("AnimatedSprite3D")
 camera3D = NodePath("../Camera3D")
+coin_drop_scene = ExtResource("4_qw7m1")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Alien"]
