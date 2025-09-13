@@ -15,7 +15,8 @@ speed_delta = 0.2
 [node name="coin_model" parent="." instance=ExtResource("1_w4kth")]
 script = ExtResource("1_mourt")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="coin_model" groups=["Coin"]]
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="coin_model" groups=["Coin"]]
+sync_to_physics = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="coin_model/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="coin_model/AnimatableBody3D"]
 shape = SubResource("BoxShape3D_q7dbp")

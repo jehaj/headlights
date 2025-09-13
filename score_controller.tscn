@@ -8,8 +8,6 @@ script = ExtResource("1_u5qsb")
 [node name="Hunner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23275, -0.241589, 0)
 
-[node name="Tenner" type="Node3D" parent="Hunner"]
-
 [node name="Tenner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627486, -0.115842, 0)
 
