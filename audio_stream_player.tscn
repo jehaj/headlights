@@ -1,0 +1,22 @@
+[gd_scene load_steps=9 format=3 uid="uid://8tlrp0sxakob"]
+
+[ext_resource type="AudioStream" uid="uid://dn43gj5kdjegx" path="res://assets/coins/audio/chips-handle-1.ogg" id="1_8mhfv"]
+[ext_resource type="AudioStream" uid="uid://b5rrwtg0d8dy5" path="res://assets/coins/audio/chips-handle-3.ogg" id="2_c471g"]
+[ext_resource type="AudioStream" uid="uid://5tp1hkiiyvve" path="res://assets/coins/audio/chips-handle-6.ogg" id="3_336cd"]
+[ext_resource type="AudioStream" uid="uid://cmyfg1vkvuhs2" path="res://assets/coins/audio/chips-stack-3.ogg" id="4_6w1ni"]
+[ext_resource type="AudioStream" uid="uid://bwkssvbxhn3kk" path="res://assets/coins/audio/chips-stack-4.ogg" id="5_pvmjm"]
+[ext_resource type="AudioStream" uid="uid://dxqawv3qdlhd" path="res://assets/coins/audio/chips-stack-5.ogg" id="6_r16rg"]
+[ext_resource type="AudioStream" uid="uid://b8ohs65lap6mm" path="res://assets/coins/audio/chips-stack-6.ogg" id="7_sspuo"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ya8vh"]
+streams_count = 7
+stream_0/stream = ExtResource("1_8mhfv")
+stream_1/stream = ExtResource("2_c471g")
+stream_2/stream = ExtResource("3_336cd")
+stream_3/stream = ExtResource("4_6w1ni")
+stream_4/stream = ExtResource("5_pvmjm")
+stream_5/stream = ExtResource("6_r16rg")
+stream_6/stream = ExtResource("7_sspuo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamRandomizer_ya8vh")

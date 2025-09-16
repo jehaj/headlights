@@ -1,19 +1,15 @@
-[gd_scene load_steps=36 format=3 uid="uid://bh53jdk2h2dir"]
+[gd_scene load_steps=29 format=3 uid="uid://bh53jdk2h2dir"]
 
 [ext_resource type="PackedScene" uid="uid://cpih4rqhbolwo" path="res://assets/lvl2/patch_grass_dessert.tscn" id="1_lpfao"]
 [ext_resource type="Script" uid="uid://dds56aa7alx0x" path="res://rotator.gd" id="2_ew34d"]
 [ext_resource type="Texture2D" uid="uid://dsk1n58876sps" path="res://assets/vindue.png" id="2_pp836"]
 [ext_resource type="Script" uid="uid://bhtt7rlwlitb5" path="res://car_window.gd" id="2_swivs"]
-[ext_resource type="Texture2D" uid="uid://dvbslrdcc4n5v" path="res://assets/alienJump.png" id="4_3ycq6"]
-[ext_resource type="Script" uid="uid://c8aaeaew0cbrl" path="res://alien.gd" id="4_cq3jk"]
-[ext_resource type="Texture2D" uid="uid://ch34p7bvqj1db" path="res://assets/alien/alienBlue_swim1.png" id="5_2t7py"]
-[ext_resource type="Texture2D" uid="uid://bkjcvjrnfttjg" path="res://assets/alien.png" id="5_pvr24"]
-[ext_resource type="PackedScene" uid="uid://fdbwlhta7m5n" path="res://assets/coins/coin_drop.tscn" id="6_3c4nw"]
+[ext_resource type="PackedScene" uid="uid://cwtt378l26tn" path="res://alien.tscn" id="5_swivs"]
 [ext_resource type="Texture2D" uid="uid://c61wuuk2pxwx7" path="res://assets/car/car1.png" id="6_h4eed"]
-[ext_resource type="Texture2D" uid="uid://bhm60qto4rt60" path="res://assets/alien/alienBlue_hurt.png" id="6_mlb6r"]
 [ext_resource type="Texture2D" uid="uid://bnuoohebj3e4v" path="res://assets/car/car2.png" id="7_4g0vf"]
 [ext_resource type="Texture2D" uid="uid://bg1njkn4vbo46" path="res://assets/car/car3.png" id="8_k10sl"]
 [ext_resource type="Texture2D" uid="uid://d1ev0gk3t7j4j" path="res://assets/car/car4.png" id="9_e4ol3"]
+[ext_resource type="PackedScene" uid="uid://8tlrp0sxakob" path="res://audio_stream_player.tscn" id="11_swivs"]
 [ext_resource type="PackedScene" uid="uid://c7gy6ylgyss6g" path="res://assets/lvl2/MovingRock2.tscn" id="12_dtkbp"]
 [ext_resource type="PackedScene" uid="uid://dijw3qqowugmw" path="res://assets/lvl2/broken_stuff.tscn" id="12_s3jkk"]
 [ext_resource type="Script" uid="uid://ccfxqnw3yrwnj" path="res://game_controller.gd" id="13_4pebd"]
@@ -40,45 +36,6 @@ sky = SubResource("Sky_cqbfy")
 [sub_resource type="BoxShape3D" id="BoxShape3D_48bmv"]
 size = Vector3(3.465, 0.975, 0.265)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gxbbg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_2t7py")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_mlb6r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_pvr24")
-}],
-"loop": false,
-"name": &"hit",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_3ycq6")
-}],
-"loop": false,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_pvr24")
-}],
-"loop": false,
-"name": &"stand",
-"speed": 5.0
-}]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ctbus"]
-size = Vector3(0.545, 0.935, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nuisj"]
-size = Vector3(1.03418, 1.38672, 56.57)
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nx8eu"]
 sky_top_color = Color(0.729412, 0.423529, 0.415686, 1)
 sky_horizon_color = Color(0.760784, 0.831373, 1, 1)
@@ -103,6 +60,8 @@ environment = SubResource("Environment_cq4ve")
 
 [node name="CarWindow" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.291, 0)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_swivs")
 metadata/_edit_group_ = true
 
@@ -116,45 +75,14 @@ pixel_size = 0.04
 render_priority = -2
 texture = ExtResource("2_pp836")
 
-[node name="Alien" type="RigidBody3D" parent="." node_paths=PackedStringArray("ray_cast", "sprite", "camera3D")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95, 13.006, 0)
-axis_lock_linear_x = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-mass = 0.5
-gravity_scale = 2.0
-can_sleep = false
-contact_monitor = true
-max_contacts_reported = 2
-script = ExtResource("4_cq3jk")
-ray_cast = NodePath("RayCast3D")
-sprite = NodePath("AnimatedSprite3D")
-camera3D = NodePath("../Camera3D")
-coin_drop_scene = ExtResource("6_3c4nw")
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Alien"]
-transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0)
-sprite_frames = SubResource("SpriteFrames_gxbbg")
-animation = &"stand"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Alien"]
-shape = SubResource("BoxShape3D_ctbus")
-
-[node name="RayCast3D" type="RayCast3D" parent="Alien"]
-target_position = Vector3(0, -0.525, 0)
-
-[node name="Area3D" type="Area3D" parent="Alien"]
-
-[node name="RockCollisionShape3D" type="CollisionShape3D" parent="Alien/Area3D"]
-shape = SubResource("BoxShape3D_nuisj")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.81, 5)
 environment = SubResource("Environment_eb3it")
 current = true
+
+[node name="Alien" parent="." node_paths=PackedStringArray("camera3D") instance=ExtResource("5_swivs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60086, 13.2345, 0)
+camera3D = NodePath("../Camera3D")
 
 [node name="CarParts" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.2879, 0)
@@ -188,6 +116,8 @@ shadow_enabled = true
 script = ExtResource("13_4pebd")
 max_car_speed = 15.0
 alien = NodePath("../Alien")
+
+[node name="AudioStreamPlayer" parent="Node" instance=ExtResource("11_swivs")]
 
 [node name="AnimatableBody3D8" parent="Node" instance=ExtResource("14_xflrf")]
 transform = Transform3D(2.90504, -14.716, 0, 14.716, 2.90504, 0, 0, 0, 15, 144.612, 40.0484, -25)
@@ -872,6 +802,5 @@ autoplay = true
 [node name="ScoreController" parent="." instance=ExtResource("23_4pebd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39469, 14.3708, 0)
 
-[connection signal="body_entered" from="Alien" to="Node" method="_on_alien_body_entered"]
-[connection signal="body_entered" from="Alien/Area3D" to="Node" method="_on_area_3d_body_entered"]
+[connection signal="area_collision" from="Alien" to="Node" method="_on_alien_area_collision"]
 [connection signal="finished" from="AudioStreamPlayer" to="Node" method="_on_audio_stream_player_finished"]

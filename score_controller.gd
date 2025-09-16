@@ -16,30 +16,17 @@ func load_numbers() -> Array[Node]:
 
 func _ready() -> void:
 	var numbers = load_numbers()
-	var i = 0
-	for number in numbers:
-		var score_idx = Global.score / 100 % 10
-		var node: Node3D = number.duplicate()
-		if i == score_idx:
-			node.visible = true
-		hunner.add_child(node)
-		i += 1
-	i = 0
-	for number in numbers:
-		var score_idx = Global.score / 10 % 10
-		var node: Node3D = number.duplicate()
-		if i == score_idx:
-			node.visible = true
-		tenner.add_child(node)
-		i += 1
-	i = 0
-	for number in numbers:
-		var score_idx = Global.score % 10
-		var node: Node3D = number
-		if i == score_idx:
-			node.visible = true
-		oner.add_child(node)
-		i += 1
+	@warning_ignore("integer_division")
+	add_digit(hunner, numbers, Global.score / 100 % 10, true)
+	@warning_ignore("integer_division")
+	add_digit(tenner, numbers, Global.score / 10 % 10, true)
+	add_digit(oner, numbers, Global.score % 10, false)
+
+func add_digit(parent: Node, numbers: Array, digit: int, duplicated: bool = true) -> void:
+	for i in range(numbers.size()):
+		var node: Node3D = numbers[i].duplicate() if duplicated else numbers[i]
+		node.visible = (i == digit)
+		parent.add_child(node)
 
 func increase_score():
 	update_score(1)
@@ -55,7 +42,9 @@ func update_score(amount: int):
 
 func increase_system(amount: int, p: Node3D, m: int):
 	var next_score = Global.score + amount
+	@warning_ignore("integer_division")
 	var score_idx = Global.score / m % 10
+	@warning_ignore("integer_division")
 	var next_score_idx = next_score / m % 10
 	if score_idx == next_score_idx:
 		return

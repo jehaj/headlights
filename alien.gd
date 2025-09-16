@@ -5,11 +5,14 @@ class_name Alien extends RigidBody3D
 @export var camera3D: Node3D
 @export var loss_amount: int = 5
 
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
+
+signal area_collision(body: Node3D)
 
 func _ready() -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var alien_position = self.position
 	var direction: Vector3 = alien_position - camera3D.position
 	direction = direction.normalized()
@@ -24,6 +27,7 @@ func _physics_process(delta: float) -> void:
 func hit() -> void:
 	print("Alien collided with something.")
 	sprite.play("hit")
+	audio_player.play()
 	lose_coins(loss_amount)
 
 @export var coin_drop_scene: PackedScene
@@ -65,3 +69,7 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 	if sprite.animation == "hit":
 		print("Changing animation back to normal.")
 		sprite.animation = "stand"
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	area_collision.emit(body)
