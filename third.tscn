@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhtt7rlwlitb5" path="res://car_window.gd" id="1_x64y5"]
 [ext_resource type="Texture2D" uid="uid://dsk1n58876sps" path="res://assets/vindue.png" id="2_lq8so"]
-[ext_resource type="PackedScene" uid="uid://8uraw1o5ntcc" path="res://alien.tscn" id="3_x64y5"]
+[ext_resource type="PackedScene" uid="uid://cwtt378l26tn" path="res://alien.tscn" id="3_hm24l"]
 [ext_resource type="Texture2D" uid="uid://bhm60qto4rt60" path="res://assets/alien/alienBlue_hurt.png" id="5_u2t0f"]
 [ext_resource type="Texture2D" uid="uid://c61wuuk2pxwx7" path="res://assets/car/car1.png" id="6_306dx"]
 [ext_resource type="Texture2D" uid="uid://bnuoohebj3e4v" path="res://assets/car/car2.png" id="7_o7ew1"]
@@ -56,14 +56,14 @@ pixel_size = 0.04
 render_priority = -4
 texture = ExtResource("2_lq8so")
 
-[node name="Alien" parent="." node_paths=PackedStringArray("camera3D") instance=ExtResource("3_x64y5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95, 13.006, 0)
-camera3D = NodePath("../Camera3D")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.81, 5)
 environment = SubResource("Environment_eb3it")
 current = true
+
+[node name="Alien" parent="." node_paths=PackedStringArray("camera3D") instance=ExtResource("3_hm24l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82296, 13.196, 0)
+camera3D = NodePath("../Camera3D")
 
 [node name="CarParts" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.2879, 0)

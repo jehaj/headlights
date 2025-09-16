@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://fdbwlhta7m5n"]
+
+[ext_resource type="Script" uid="uid://7fluhlfnl0vs" path="res://assets/coins/coin_drop.gd" id="1_ubuih"]
+[ext_resource type="PackedScene" uid="uid://c8vglrcbsakjo" path="res://assets/coins/coin.glb" id="2_sl54q"]
+
+[node name="Coin" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
+script = ExtResource("1_ubuih")
+
+[node name="coin2" parent="." instance=ExtResource("2_sl54q")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

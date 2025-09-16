@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c61wuuk2pxwx7" path="res://assets/car/car1.png" id="2_5xjma"]
 [ext_resource type="Texture2D" uid="uid://bnuoohebj3e4v" path="res://assets/car/car2.png" id="3_xp6mu"]
 [ext_resource type="Texture2D" uid="uid://bg1njkn4vbo46" path="res://assets/car/car3.png" id="4_dhb8b"]
-[ext_resource type="PackedScene" uid="uid://8uraw1o5ntcc" path="res://alien.tscn" id="4_rvm7b"]
+[ext_resource type="PackedScene" uid="uid://cwtt378l26tn" path="res://alien.tscn" id="4_rvm7b"]
 [ext_resource type="Texture2D" uid="uid://d1ev0gk3t7j4j" path="res://assets/car/car4.png" id="5_7x3w2"]
 [ext_resource type="Script" uid="uid://ccfxqnw3yrwnj" path="res://game_controller.gd" id="12_uhr3n"]
 [ext_resource type="PackedScene" uid="uid://b6r71nwsltrdv" path="res://assets/rocks/MovingRock.tscn" id="14_bmkd0"]
@@ -89,7 +89,7 @@ texture = ExtResource("5_7x3w2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.906308, -0.348291, 0.239374, 0, 0.566406, 0.824126, -0.422618, -0.746912, 0.513338, 0, 0, 0)
-light_energy = 0.2
+light_energy = 0.4
 shadow_enabled = true
 
 [node name="Node" type="Node" parent="." node_paths=PackedStringArray("alien")]

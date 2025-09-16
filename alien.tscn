@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://8uraw1o5ntcc"]
+[gd_scene load_steps=14 format=3 uid="uid://cwtt378l26tn"]
 
 [ext_resource type="Script" uid="uid://c8aaeaew0cbrl" path="res://alien.gd" id="1_g5epv"]
-[ext_resource type="Texture2D" uid="uid://ch34p7bvqj1db" path="res://assets/alien/alienBlue_swim1.png" id="2_1tq5k"]
-[ext_resource type="Texture2D" uid="uid://bhm60qto4rt60" path="res://assets/alien/alienBlue_hurt.png" id="3_17d3o"]
+[ext_resource type="PackedScene" uid="uid://fdbwlhta7m5n" path="res://assets/coins/coin_drop.tscn" id="2_3iyr1"]
 [ext_resource type="Texture2D" uid="uid://bkjcvjrnfttjg" path="res://assets/alien.png" id="4_v6wi2"]
 [ext_resource type="Texture2D" uid="uid://dvbslrdcc4n5v" path="res://assets/alienJump.png" id="5_3iyr1"]
 [ext_resource type="AudioStream" uid="uid://xkdfaqmbyvv3" path="res://assets/impact/impactWood_medium_000.ogg" id="6_vysnc"]
@@ -11,14 +10,14 @@
 [ext_resource type="AudioStream" uid="uid://o6i647d1ecsd" path="res://assets/impact/impactWood_medium_003.ogg" id="9_b7hat"]
 [ext_resource type="AudioStream" uid="uid://df1vnr14wfppa" path="res://assets/impact/impactWood_medium_004.ogg" id="10_up0u7"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_d83hq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vysnc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1tq5k")
+"texture": ExtResource("4_v6wi2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_17d3o")
+"texture": ExtResource("5_3iyr1")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_v6wi2")
@@ -74,13 +73,14 @@ max_contacts_reported = 2
 script = ExtResource("1_g5epv")
 ray_cast = NodePath("RayCast3D")
 sprite = NodePath("AnimatedSprite3D")
+coin_drop_scene = ExtResource("2_3iyr1")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
 render_priority = -2
-sprite_frames = SubResource("SpriteFrames_d83hq")
-animation = &"stand"
+sprite_frames = SubResource("SpriteFrames_vysnc")
+animation = &"jump"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ctbus")

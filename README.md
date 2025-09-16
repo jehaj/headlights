@@ -11,3 +11,5 @@ This creates a journey where the player travels through forest, wasteland and la
 Every adult EU citizen has the right to stand as a candidate and to vote in elections to the European Parliament 
 
 The newest version can be played at https://jehaj.itch.io/headlights.
+
+Many of the assets used come from Kenney (https://kenney.nl).

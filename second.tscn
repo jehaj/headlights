@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dds56aa7alx0x" path="res://rotator.gd" id="2_ew34d"]
 [ext_resource type="Texture2D" uid="uid://dsk1n58876sps" path="res://assets/vindue.png" id="2_pp836"]
 [ext_resource type="Script" uid="uid://bhtt7rlwlitb5" path="res://car_window.gd" id="2_swivs"]
-[ext_resource type="PackedScene" uid="uid://8uraw1o5ntcc" path="res://alien.tscn" id="5_7bvcy"]
+[ext_resource type="PackedScene" uid="uid://cwtt378l26tn" path="res://alien.tscn" id="5_swivs"]
 [ext_resource type="Texture2D" uid="uid://c61wuuk2pxwx7" path="res://assets/car/car1.png" id="6_h4eed"]
 [ext_resource type="Texture2D" uid="uid://bnuoohebj3e4v" path="res://assets/car/car2.png" id="7_4g0vf"]
 [ext_resource type="Texture2D" uid="uid://bg1njkn4vbo46" path="res://assets/car/car3.png" id="8_k10sl"]
@@ -80,8 +80,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.81, 5)
 environment = SubResource("Environment_eb3it")
 current = true
 
-[node name="Alien" parent="." node_paths=PackedStringArray("camera3D") instance=ExtResource("5_7bvcy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97463, 13.2992, 0)
+[node name="Alien" parent="." node_paths=PackedStringArray("camera3D") instance=ExtResource("5_swivs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60086, 13.2345, 0)
 camera3D = NodePath("../Camera3D")
 
 [node name="CarParts" type="Node3D" parent="."]
